@@ -10,7 +10,7 @@ import { useEffect, useState } from 'react';
 
 export default function HomeComponent() {
     const { t } = useTranslation('common');
-    const [slideLoading, setSlideLoading] = useState(true)
+    const [slideLoading, setSlideLoading] = useState(false)
 
     const howItsWorkData = [
         {
@@ -60,12 +60,12 @@ export default function HomeComponent() {
         { description: "I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.", image: "./images/homebanner.jpg" },
     ]
 
-    useEffect(() => {
-        setSlideLoading(true)
-        setTimeout(() => {
-            setSlideLoading(false)
-        }, 1600);
-    }, [])
+    // useEffect(() => {
+    //     setSlideLoading(true)
+    //     setTimeout(() => {
+    //         setSlideLoading(false)
+    //     }, 1);
+    // }, [])
 
 
     return (
