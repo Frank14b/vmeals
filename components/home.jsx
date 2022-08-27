@@ -150,7 +150,7 @@ export default function HomeComponent() {
                                 chooseUsData.map((data, index) => (
                                     <div key={index} className='col-md-6 col-lg-3 mb-4 col-sm-6 p-3'>
                                         <div className='border-1-5 w-100 position-relative box-shadow bg-white p-3 border-radius'>
-                                            <img src={data.image} className="image_ bg-white p-2 border-1-5" />
+                                            <img src={data.image} className="image_ bg-white p-2 border-1-5 w-100" />
                                             <div className='col-md-12 mt-5 text-center'>
                                                 <h4 className='text-success bold-700'>{data.title}</h4>
                                                 <p className='text-left'>{data.description}</p>
@@ -191,7 +191,7 @@ export default function HomeComponent() {
             {/* home page five section  */}
             <div className='w-100 homepage_fivesection pt-5'>
                 <div className='container'>
-                    <GoogleReviewComponents></GoogleReviewComponents>
+                    {/* <GoogleReviewComponents></GoogleReviewComponents> */}
                 </div>
             </div>
             {/* home page five section  */}
