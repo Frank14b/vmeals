@@ -251,8 +251,16 @@ a {
   background: #E1F0E0 !important;
 }
 
-.homepage_firstsection {
-  min-height: 50vh;
+@media screen and (min-width: 992px) {
+  .homepage_firstsection {
+    min-height: 70vh;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .homepage_firstsection {
+    min-height: 40vh;
+  }
 }
 
 @import "./font.css";

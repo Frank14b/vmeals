@@ -30,9 +30,18 @@
     object-fit: cover;
 }
 
-.homepage_firstsection .mySwiper {
-    height: 80vh;
-    position: relative;
+@media screen and (min-width: 992px) {
+    .homepage_firstsection .mySwiper {
+        height: 80vh;
+        position: relative;
+    }    
+}
+
+@media screen and (max-width: 992px) {
+    .homepage_firstsection .mySwiper {
+        height: 50vh;
+        position: relative;
+    }    
 }
 
 .vh-100 {
@@ -85,7 +94,7 @@
 .homepage_firstsection .swiper-button-prev {
     left: 40%;
     top: auto;
-    bottom: 10%;
+    bottom: 5%;
     transform: translate(-50%, 0);
 }
 
@@ -93,7 +102,7 @@
     left: 60%;
     top: auto;
     right: auto;
-    bottom: 10%;
+    bottom: 5%;
     transform: translate(-50%, 0);
 }
 

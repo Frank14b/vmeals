@@ -7,10 +7,11 @@ import Header from './layout/header';
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 
 export default function HomeComponent() {
     const { t } = useTranslation('common');
-    const [slideLoading, setSlideLoading] = useState(false)
+    const [slideLoading, setSlideLoading] = useState(true)
 
     const howItsWorkData = [
         {
@@ -60,12 +61,12 @@ export default function HomeComponent() {
         { description: "I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.", image: "./images/homebanner.jpg" },
     ]
 
-    // useEffect(() => {
-    //     setSlideLoading(true)
-    //     setTimeout(() => {
-    //         setSlideLoading(false)
-    //     }, 1);
-    // }, [])
+    useEffect(() => {
+        setSlideLoading(true)
+        setTimeout(() => {
+            setSlideLoading(false)
+        }, 2000);
+    }, [])
 
 
     return (
@@ -73,17 +74,22 @@ export default function HomeComponent() {
             <Header page={"home"}></Header>
 
             {/* home page first section  */}
-            <div className='w-100 homepage_firstsection'>
+            <div className='w-100 homepage_firstsection position-relative'>
                 {
                     (slideLoading) ? (
                         <>
-                            <div className='col-md-6 mx-auto mt-5 pt-5 border-radius'>
-                                <Skeleton baseColor='#E1F0E0' count={5} />
+                            <Image src={"/images/homebanner.jpg"} layout={'fill'} className="w-100 image_" style={{ "objectFit": "contain" }} />
+                            {/* <div className='col-md-6 mx-auto mt-5 pt-5 border-radius'>
+                                <Skeleton baseColor='#E1F0E0' count={3} />
                                 <div className='text-center bold-400'>Loading...</div>
-                            </div>
+                            </div> */}
                         </>
                     ) : (
-                        <SliderComponent slideData={sideElement}></SliderComponent>
+                        <>
+
+                            <SliderComponent slideData={sideElement}></SliderComponent>
+                        </>
+
                     )
                 }
             </div>
