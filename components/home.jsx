@@ -1,6 +1,6 @@
 import useTranslation from 'next-translate/useTranslation';
 import Head from 'next/head';
-import GoogleReviewComponents from './googlereviews';
+// import GoogleReviewComponents from './googlereviews';
 import SliderComponent from './homepage/sliderComponent';
 import Footer from './layout/footer';
 import Header from './layout/header';
