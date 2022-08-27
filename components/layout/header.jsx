@@ -1,5 +1,6 @@
 import useTranslation from 'next-translate/useTranslation';
 import Head from 'next/head';
+import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Header({ page, subpage, title, description, banner }) {
@@ -42,7 +43,7 @@ export default function Header({ page, subpage, title, description, banner }) {
                 <div className='container'>
                     <nav className="navbar navbar-expand-lg navbar-light">
                         <a className="navbar-brand img_logo_div" href="#">
-                            <img src='./images/logo.png' className='img_logo box-shadow p-2' />
+                            <Image src='./images/logo.png' className='img_logo box-shadow p-2' />
                         </a>
                         <a className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span className="navbar-toggler-icon"></span>
