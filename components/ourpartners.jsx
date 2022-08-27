@@ -3,9 +3,13 @@ import GoogleReviewComponents from './googlereviews';
 import SliderComponent from './homepage/sliderComponent';
 import Footer from './layout/footer';
 import Header from './layout/header';
+import { useEffect, useState } from 'react';
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 
 export default function OurPartnersComponent() {
     const { t } = useTranslation('common');
+    const [slideLoading, setSlideLoading] = useState(true)
 
     const slideData = [
         {
@@ -26,10 +30,18 @@ export default function OurPartnersComponent() {
     ]
 
     const sideElement = [
-        { description: "", image: "./images/homebanner.jpg" },
-        { description: "", image: "./images/homebanner.jpg" },
-        { description: "", image: "./images/homebanner.jpg" }
+        { description: "", image: "./images/homebanner.webp" },
+        { description: "", image: "./images/homebanner.webp" },
+        { description: "", image: "./images/homebanner.webp" }
     ]
+
+    useEffect(() => {
+        setSlideLoading(true)
+        setTimeout(() => {
+            setSlideLoading(false)
+        }, 2000);
+    }, [])
+
 
     return (
         <>
@@ -43,7 +55,20 @@ export default function OurPartnersComponent() {
                             <h1 className='bold-700'>{t("Our Partners")}</h1>
                         </div>
                         <div className='col-md-6 bg-light p-0 box-shadow border-radius mb-5'>
-                            <SliderComponent slideData={sideElement}></SliderComponent>
+                            {
+                                (!slideLoading) ? (
+                                    <SliderComponent slideData={sideElement}></SliderComponent>
+                                ) : (
+
+                                    <>
+                                        <div className='col-md-10 mx-auto mt-5 pt-5 border-radius'>
+                                            <Skeleton baseColor='#E1F0E0' count={3} />
+                                            <div className='text-center bold-400'>Loading...</div>
+                                        </div>
+                                    </>
+                                )
+                            }
+
 
                             <div className='col-md-12 p-3 text-justify pt-4'>
                                 <p>
@@ -53,7 +78,7 @@ export default function OurPartnersComponent() {
                         </div>
 
                         <div className='col-md-6'>
-                            <div className='bg-success-light w-100 p-3 border-radius' style={{"min-height": "60vh"}}>
+                            <div className='bg-success-light w-100 p-3 border-radius' style={{ "min-height": "60vh" }}>
                                 <form className='w-100' method='post'>
                                     <div className='row mb-3'>
                                         <div className='col-md-12 py-3'>
@@ -64,13 +89,13 @@ export default function OurPartnersComponent() {
                                     <div className='row mb-3'>
                                         <div className='col-md-6'>
                                             <label className='w-100'>First Name <span className='text-danger'>*</span>
-                                                <input type={"text"} className="form-control" placeholder='First name' required/>
+                                                <input type={"text"} className="form-control" placeholder='First name' required />
                                             </label>
                                         </div>
 
                                         <div className='col-md-6'>
                                             <label className='w-100'>Last Name <span className='text-danger'>*</span>
-                                                <input type={"text"} className="form-control" placeholder='Last name' required/>
+                                                <input type={"text"} className="form-control" placeholder='Last name' required />
                                             </label>
                                         </div>
                                     </div>
@@ -78,7 +103,7 @@ export default function OurPartnersComponent() {
                                     <div className='row mb-3'>
                                         <div className='col-md-12'>
                                             <label className='w-100'>Email <span className='text-danger'>*</span>
-                                                <input type={"email"} className="form-control" placeholder='Email' required/>
+                                                <input type={"email"} className="form-control" placeholder='Email' required />
                                             </label>
                                         </div>
                                     </div>
@@ -86,7 +111,7 @@ export default function OurPartnersComponent() {
                                     <div className='row mb-3'>
                                         <div className='col-md-12'>
                                             <label className='w-100'>Mobile Number <span className='text-danger'>*</span>
-                                                <input type={"number"} className="form-control" placeholder='Mobile Number' required/>
+                                                <input type={"number"} className="form-control" placeholder='Mobile Number' required />
                                             </label>
                                         </div>
                                     </div>
@@ -94,20 +119,20 @@ export default function OurPartnersComponent() {
                                     <div className='row mb-3'>
                                         <div className='col-md-6'>
                                             <label className='w-100'>Company Name <span className='text-danger'>*</span>
-                                                <input type={"text"} className="form-control" placeholder='Company Name' required/>
+                                                <input type={"text"} className="form-control" placeholder='Company Name' required />
                                             </label>
                                         </div>
 
                                         <div className='col-md-6'>
                                             <label className='w-100'>Your Designation <span className='text-danger'>*</span>
-                                                <input type={"text"} className="form-control" placeholder='Your Designation' required/>
+                                                <input type={"text"} className="form-control" placeholder='Your Designation' required />
                                             </label>
                                         </div>
                                     </div>
 
                                     <div className='row mb-3 mt-4'>
                                         <div className='col-md-12'>
-                                            <br/><br/>
+                                            <br /><br />
                                             <button className='w-100 btn btn-success btn-sm text-center'>Submit</button>
                                         </div>
                                     </div>

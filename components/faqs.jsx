@@ -1,9 +1,11 @@
 import useTranslation from 'next-translate/useTranslation';
 import Footer from './layout/footer';
 import Header from './layout/header';
+import { useEffect, useState } from 'react';
 
 export default function FaqsComponent() {
     const { t } = useTranslation('common');
+    const [slideLoading, setSlideLoading] = useState(true)
 
     const firstContentData = {
         title: "Our Company",
@@ -41,6 +43,13 @@ export default function FaqsComponent() {
             role: "DIETITIAN"
         }
     ]
+
+    useEffect(() => {
+        setSlideLoading(true)
+        setTimeout(() => {
+            setSlideLoading(false)
+        }, 2000);
+    }, [])
 
     return (
         <>
