@@ -1,0 +1,15 @@
+{
+    "################# Header ###################": "################### Header ##################",
+    "_header": {
+        "home": "home",
+        "about": "about",
+        "contacts": "contacts"
+    },
+
+    "################# Footer ###################": "################### Footer ##################",
+    "_footer": {
+        "home": "home",
+        "about": "about",
+        "contacts": "contacts"
+    }
+}

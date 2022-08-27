@@ -1,0 +1,26 @@
+{
+    "################# Header ###################": "################### Header ##################",
+    "_meta": {
+        "home": "Home",
+        "about": "About",
+        "contacts": "Contacts"
+    },
+
+    "_header": {
+        "Home": "Home",
+        "About": "About",
+        "Need_Assistance": "Need Assistance",
+        "English": "English",
+        "Arabic": "Arabic",
+        "Login": "Login",
+        "Get_Started": "Get Started",
+        "Meal_Plans": "Meal Plans"
+    },
+
+    "################# Footer ###################": "################### Footer ##################",
+    "_footer": {
+        "Sitemap": "Sitemap",
+        "privacy_policy": "Privacy Policy",
+        "terms_of_conditions": "Terms of Conditions"
+    }
+}
