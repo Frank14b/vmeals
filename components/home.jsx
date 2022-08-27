@@ -56,9 +56,9 @@ export default function HomeComponent() {
     ]
 
     const sideElement = [
-        { description: "I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.", image: "./images/homebanner.jpg" },
-        { description: "I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.", image: "./images/homebanner.jpg" },
-        { description: "I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.", image: "./images/homebanner.jpg" },
+        { description: "I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.", image: "./images/homebanner.webp" },
+        { description: "I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.", image: "./images/homebanner.webp" },
+        { description: "I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.", image: "./images/homebanner.webp" },
     ]
 
     useEffect(() => {
@@ -75,7 +75,7 @@ export default function HomeComponent() {
                 page={"home"} 
                 description="We are the best meal plan and monthly food delivery company in Dubai (UAE). We provide every day freshly prepared, handmade, &amp; personalized healthy meals." 
                 title={"Home"}
-                banner={"./images/homebanner.jpg"}>
+                banner={"./images/homebanner.webp"}>
             </Header>
 
             {/* home page first section  */}
@@ -83,7 +83,7 @@ export default function HomeComponent() {
                 {
                     (slideLoading) ? (
                         <>
-                            <Image alt='Vmeals' src={"/images/homebanner.jpg"} layout={'fill'} className="w-100 image_" style={{ "objectFit": "contain" }} />
+                            <Image alt='Vmeals' src={"/images/homebanner.webp"} layout={'fill'} className="w-100 image_" style={{ "objectFit": "contain" }} />
                             {/* <div className='col-md-6 mx-auto mt-5 pt-5 border-radius'>
                                 <Skeleton baseColor='#E1F0E0' count={3} />
                                 <div className='text-center bold-400'>Loading...</div>

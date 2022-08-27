@@ -47,7 +47,7 @@ export default function FaqsComponent() {
             <Header page={"about"} subpage="faqs"></Header>
 
             <div className='w-100'>
-                <div className='container mt-5 pt-5' style={{"min-height": "80vh"}}>
+                <div className='container mt-5 pt-5' style={{"minHeight": "80vh"}}>
                     <div className='row mt-5'>
                         <div className='col-md-4'>
                             <h1 className='bold-700'>Every day fresh and healthy meals</h1>
