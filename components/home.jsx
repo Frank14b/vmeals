@@ -121,7 +121,7 @@ export default function HomeComponent() {
                                 howItsWorkData.map((data, index) => (
                                     <div key={index} className='col-md-4'>
                                         <div className='col-md-12 text-center'>
-                                            <Image alt='meals' src={data.image} />
+                                            <Image alt='meals' src={data.image} height={150} width={150} />
                                         </div>
                                         <div className='col-md-12 d-flex'>
                                             <div className='number bold-700'><a>{(index + 1)}.</a></div>
@@ -161,7 +161,7 @@ export default function HomeComponent() {
                                 chooseUsData.map((data, index) => (
                                     <div key={index} className='col-md-6 col-lg-3 mb-4 col-sm-6 p-3'>
                                         <div className='border-1-5 w-100 position-relative box-shadow bg-white p-3 border-radius'>
-                                            <Image alt='plans' src={data.image} className="image_ bg-white p-2 border-1-5" />
+                                            <span className='bg-white border-1-5 image_'><Image alt='plans' src={data.image} className="p-3" layout={'fill'} /></span>
                                             <div className='col-md-12 mt-5 text-center'>
                                                 <h4 className='text-success bold-700'>{data.title}</h4>
                                                 <p className='text-left'>{data.description}</p>
@@ -182,7 +182,7 @@ export default function HomeComponent() {
                 <div className='container'>
                     <div className='row mt-5'>
                         <div className='col-md-6 mb-4 image_'>
-                            <Image alt='Deit' src="https://i0.wp.com/workspace.vmeals.ae/wp-content/uploads/2019/06/Photo-07-11-2021-8-54-25-AM.jpg?ssl=1" className='w-100 border-radius' />
+                            <Image height={450} width={600} alt='Deit' src="https://i0.wp.com/workspace.vmeals.ae/wp-content/uploads/2019/06/Photo-07-11-2021-8-54-25-AM.jpg?ssl=1" className='w-100 border-radius' />
                         </div>
 
                         <div className='col-md-6'>

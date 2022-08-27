@@ -7,8 +7,11 @@ const nextConfig = {
   webpack: (config) => {
     config.resolve.fallback = { fs: false, path: false, stream: false, constants: false };
     return config;
-
-  }
+  },
+  images: {
+    //enter the domain or subdomain where you have WordPress installed
+    domains: ['workspace.vmeals.ae', 'i0.wp.com', 'vmeals.com'],
+  },
 }
 
 module.exports = nextTranslate(nextConfig)
