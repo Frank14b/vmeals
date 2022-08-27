@@ -45,6 +45,18 @@
     width: 30%;
 }
 
+@media screen and (max-width: 992px) {
+    .homepage_firstsection .mySwiper .slide_description {
+        position: absolute;
+        left: 4%;
+        right: 4%;
+        top: 30%;
+        transform: translate(0, -50%);
+        width: auto;
+        background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)) !important;
+    }
+}
+
 .homepage_firstsection .swiper-button-prev, .homepage_firstsection .swiper-button-next {
    background: #41A53D;
    color: #fff;
@@ -67,14 +79,14 @@
 }
 
 .homepage_firstsection .swiper-button-prev {
-    left: 45%;
+    left: 40%;
     top: auto;
     bottom: 10%;
     transform: translate(-50%, 0);
 }
 
 .homepage_firstsection .swiper-button-next {
-    left: 55%;
+    left: 60%;
     top: auto;
     right: auto;
     bottom: 10%;

@@ -26,9 +26,9 @@ export default function OurPartnersComponent() {
     ]
 
     const sideElement = [
-        { description: "", image: "https://workspace.vmeals.ae/wp-content/uploads/2019/06/louis-hansel-phEaeqe555M-unsplash.jpg" },
-        { description: "", image: "https://workspace.vmeals.ae/wp-content/uploads/2019/06/louis-hansel-phEaeqe555M-unsplash.jpg" },
-        { description: "", image: "https://workspace.vmeals.ae/wp-content/uploads/2019/06/louis-hansel-phEaeqe555M-unsplash.jpg" }
+        { description: "", image: "./images/homebanner.jpg" },
+        { description: "", image: "./images/homebanner.jpg" },
+        { description: "", image: "./images/homebanner.jpg" }
     ]
 
     return (

@@ -44,9 +44,9 @@ export default function Header({ page, subpage, title, description, banner }) {
                         <a className="navbar-brand img_logo_div" href="#">
                             <img src='./images/logo.png' className='img_logo box-shadow p-2' />
                         </a>
-                        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <a className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span className="navbar-toggler-icon"></span>
-                        </button>
+                        </a>
 
                         <div className='row w-100'>
 

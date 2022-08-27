@@ -55,9 +55,9 @@ export default function HomeComponent() {
     ]
 
     const sideElement = [
-        { description: "I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.", image: "https://workspace.vmeals.ae/wp-content/uploads/2019/06/louis-hansel-phEaeqe555M-unsplash.jpg" },
-        { description: "I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.", image: "https://workspace.vmeals.ae/wp-content/uploads/2019/06/louis-hansel-phEaeqe555M-unsplash.jpg" },
-        { description: "I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.", image: "https://workspace.vmeals.ae/wp-content/uploads/2019/06/louis-hansel-phEaeqe555M-unsplash.jpg" },
+        { description: "I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.", image: "./images/homebanner.jpg" },
+        { description: "I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.", image: "./images/homebanner.jpg" },
+        { description: "I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.", image: "./images/homebanner.jpg" },
     ]
 
     useEffect(() => {
@@ -90,7 +90,7 @@ export default function HomeComponent() {
             {/* home page first section  */}
 
             {/* home page second section  */}
-            <div className='w-100 homepage_secondsection py-5'>
+            <div className='w-100 homepage_secondsection py-4'>
 
                 <div className='col-md-12 text-center py-5'>
                     <h2 className='bold-700'>{t("How its works?")}</h2>
@@ -130,7 +130,7 @@ export default function HomeComponent() {
 
 
             {/* home page third section  */}
-            <div className='w-100 homepage_thirdsection py-5 bg-light'>
+            <div className='w-100 homepage_thirdsection pt-3 bg-light'>
 
                 <div className='col-md-12 text-center py-5'>
                     <h2 className='bold-700'>{t("_home.Choose_Us")}</h2>
@@ -167,11 +167,11 @@ export default function HomeComponent() {
 
 
             {/* home page four section  */}
-            <div className='w-100 homepage_foursection pt-5'>
+            <div className='w-100 homepage_foursection'>
                 <div className='container'>
                     <div className='row mt-5'>
-                        <div className='col-md-6'>
-                            <img src="https://i0.wp.com/workspace.vmeals.ae/wp-content/uploads/2019/06/Photo-07-11-2021-8-54-25-AM.jpg?ssl=1" className='w-100 image_ border-radius' />
+                        <div className='col-md-6 mb-4 image_'>
+                            <img src="https://i0.wp.com/workspace.vmeals.ae/wp-content/uploads/2019/06/Photo-07-11-2021-8-54-25-AM.jpg?ssl=1" className='w-100 border-radius' />
                         </div>
 
                         <div className='col-md-6'>

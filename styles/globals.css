@@ -19,6 +19,25 @@ a {
   font-family: "Roboto Condensed" !important;
 }
 
+.navbar-toggler {
+  border: 0px;
+  margin-left: 95%;
+  transform: translate(-0%, 0);
+}
+
+@media screen and (max-width: 560px) {
+  .navbar-toggler {
+    margin-left: 87%;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .px-5 {
+    padding-left: 1em !important;
+    padding-right: 1em !important;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
@@ -152,7 +171,12 @@ a {
 }
 
 .homepage_foursection .image_ {
-  height: 60%;
+  height: auto;
+  position: relative;
+}
+
+.homepage_foursection .image_ img {
+  height: 50vh;
   object-fit: cover;
 }
 
