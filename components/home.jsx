@@ -4,9 +4,13 @@ import GoogleReviewComponents from './googlereviews';
 import SliderComponent from './homepage/sliderComponent';
 import Footer from './layout/footer';
 import Header from './layout/header';
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
+import { useEffect, useState } from 'react';
 
 export default function HomeComponent() {
     const { t } = useTranslation('common');
+    const [slideLoading, setSlideLoading] = useState(true)
 
     const howItsWorkData = [
         {
@@ -56,6 +60,13 @@ export default function HomeComponent() {
         { description: "I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.", image: "https://workspace.vmeals.ae/wp-content/uploads/2019/06/louis-hansel-phEaeqe555M-unsplash.jpg" },
     ]
 
+    useEffect(() => {
+        setSlideLoading(true)
+        setTimeout(() => {
+            setSlideLoading(false)
+        }, 1600);
+    }, [])
+
 
     return (
         <>
@@ -63,7 +74,18 @@ export default function HomeComponent() {
 
             {/* home page first section  */}
             <div className='w-100 homepage_firstsection'>
-                <SliderComponent slideData={sideElement}></SliderComponent>
+                {
+                    (slideLoading) ? (
+                        <>
+                            <div className='col-md-6 mx-auto mt-5 pt-5 border-radius'>
+                                <Skeleton baseColor='#E1F0E0' count={5} />
+                                <div className='text-center bold-400'>Loading...</div>
+                            </div>
+                        </>
+                    ) : (
+                        <SliderComponent slideData={sideElement}></SliderComponent>
+                    )
+                }
             </div>
             {/* home page first section  */}
 
@@ -77,20 +99,29 @@ export default function HomeComponent() {
                 <div className='container'>
                     <div className='row'>
                         {
-                            howItsWorkData.map((data, index) => (
-                                <div key={index} className='col-md-4'>
-                                    <div className='col-md-12 text-center'>
-                                        <img src={data.image} />
+                            (slideLoading) ? (
+                                <>
+                                    <div className='col-md-6 mx-auto mt-5 pt-5 border-radius'>
+                                        <Skeleton baseColor='#E1F0E0' count={5} />
+                                        <div className='text-center bold-400'>Loading...</div>
                                     </div>
-                                    <div className='col-md-12 d-flex'>
-                                        <div className='number bold-700'><a>{(index + 1)}.</a></div>
-                                        <div className='text-left'>
-                                            <h4 className='bold-700 t-22 mt-5 text-success'>{data.title}</h4>
-                                            {data.description}
+                                </>
+                            ) : (
+                                howItsWorkData.map((data, index) => (
+                                    <div key={index} className='col-md-4'>
+                                        <div className='col-md-12 text-center'>
+                                            <img src={data.image} />
+                                        </div>
+                                        <div className='col-md-12 d-flex'>
+                                            <div className='number bold-700'><a>{(index + 1)}.</a></div>
+                                            <div className='text-left'>
+                                                <h4 className='bold-700 t-22 mt-5 text-success'>{data.title}</h4>
+                                                {data.description}
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            ))
+                                ))
+                            )
                         }
                     </div>
                 </div>
@@ -108,17 +139,26 @@ export default function HomeComponent() {
                 <div className='col-md-12'>
                     <div className='row mt-5 px-5'>
                         {
-                            chooseUsData.map((data, index) => (
-                                <div key={index} className='col-md-6 col-lg-3 mb-4 col-sm-6 p-3'>
-                                    <div className='border-1-5 w-100 position-relative box-shadow bg-white p-3 border-radius'>
-                                        <img src={data.image} className="image_ bg-white p-2 border-1-5" />
-                                        <div className='col-md-12 mt-5 text-center'>
-                                            <h4 className='text-success bold-700'>{data.title}</h4>
-                                            <p className='text-left'>{data.description}</p>
+                            (slideLoading) ? (
+                                <>
+                                    <div className='col-md-6 mx-auto mt-5 pt-5 border-radius'>
+                                        <Skeleton baseColor='#E1F0E0' count={5} />
+                                        <div className='text-center bold-400'>Loading...</div>
+                                    </div>
+                                </>
+                            ) : (
+                                chooseUsData.map((data, index) => (
+                                    <div key={index} className='col-md-6 col-lg-3 mb-4 col-sm-6 p-3'>
+                                        <div className='border-1-5 w-100 position-relative box-shadow bg-white p-3 border-radius'>
+                                            <img src={data.image} className="image_ bg-white p-2 border-1-5" />
+                                            <div className='col-md-12 mt-5 text-center'>
+                                                <h4 className='text-success bold-700'>{data.title}</h4>
+                                                <p className='text-left'>{data.description}</p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            ))
+                                ))
+                            )
                         }
                     </div>
                 </div>
