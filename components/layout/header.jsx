@@ -26,7 +26,7 @@ export default function Header({ page, subpage, title, description, banner }) {
                 <meta property="og:locale" content="en_GB" />
                 <meta property="og:type" content="website" />
                 <meta name="auhtor" content="Vmeals" />
-                <link rel="profile" href="//gmpg.org/xfn/11"/>
+                <link rel="profile" href="//gmpg.org/xfn/11" />
                 <meta property="og:title" content={title} />
                 <meta property="og:site_name" content="Vmeals" />
                 <meta property="og:url" content="https://vmeals.com" />
@@ -46,7 +46,7 @@ export default function Header({ page, subpage, title, description, banner }) {
                 <div className='container'>
                     <nav className="navbar navbar-expand-lg navbar-light">
                         <a className="navbar-brand img_logo_div" href="#">
-                            <Image layout={'fill'} src='/images/logo.png' className='img_logo box-shadow p-2' />
+                            <Image width={80} height={80} src='/images/logo.png' className='p-2 img_logo box-shadow' />
                         </a>
                         <a className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span className="navbar-toggler-icon"></span>
