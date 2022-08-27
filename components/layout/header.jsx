@@ -22,8 +22,11 @@ export default function Header({ page, subpage, title, description, banner }) {
                 <meta name="description"
                     content={description} />
                 {/* <!-- author of this document --> */}
+                <link rel="canonical" href="https://vmeals.ae/" />
+                <meta property="og:locale" content="en_GB" />
+                <meta property="og:type" content="website" />
                 <meta name="auhtor" content="Vmeals" />
-                <meta property="og:type" content="" />
+                <link rel="profile" href="//gmpg.org/xfn/11"/>
                 <meta property="og:title" content={title} />
                 <meta property="og:site_name" content="Vmeals" />
                 <meta property="og:url" content="https://vmeals.com" />
