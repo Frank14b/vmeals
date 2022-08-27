@@ -262,5 +262,34 @@ a {
   }
 }
 
+@media screen and (max-width: 1200px) {
+   .company_seocndsection_image_div {
+    height: 40vh !important;
+   }
+}
+
+@media screen and (max-width: 992px) {
+  .company_seocndsection_image_div {
+   height: 30vh !important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .company_seocndsection_image_div {
+   height: 22vh !important;
+  }
+
+  .company_firstsection {
+    height: auto !important;
+    padding-bottom: 50px;
+  }
+}
+
+@media only screen and (min-width: 767px) and (max-width: 1200px) {
+  .company_firstsection .banner {
+    font-size: 35px !important;
+  }
+}
+
 @import "./font.css";
 @import "./slider.css";

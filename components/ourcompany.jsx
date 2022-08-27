@@ -1,5 +1,6 @@
 import useTranslation from 'next-translate/useTranslation';
-import GoogleReviewComponents from './googlereviews';
+import Image from 'next/image';
+// import GoogleReviewComponents from './googlereviews';
 import Footer from './layout/footer';
 import Header from './layout/header';
 
@@ -58,7 +59,7 @@ export default function OurCompanyComponent() {
                             <div className='banner bold-700'>{firstContentData.banner}</div>
                         </div>
                         <div className='col-md-6 p-3'>
-                            <img src={firstContentData.image} className="w-100 border-radius" />
+                            <Image width={650} height={450} src={firstContentData.image} className="w-100 border-radius" />
                         </div>
                     </div>
                 </div>
@@ -68,9 +69,11 @@ export default function OurCompanyComponent() {
             {/* home page second section  */}
             <div className='w-100 company_seocndsection pt-1'>
                 <div className="container mt-5">
-                    <div className='col-md-12 mx-auto text-center'>
+                    <div className='col-md-12 mx-auto text-center position-relative'>
                         <h2 className='bold-700 pb-5'>{secondContentData.title}</h2>
-                        <img src={secondContentData.image} className="w-100 object-fit-cover" />
+                        <div className='col-md-12 position-relative company_seocndsection_image_div' style={{ "height": "55vh" }}>
+                            <Image layout='fill' src={secondContentData.image} className="w-100" style={{ "objectFit": "contain" }} />
+                        </div>
                     </div>
                 </div>
             </div>
@@ -86,7 +89,9 @@ export default function OurCompanyComponent() {
                                 thirdContentData.map((data, index) => (
                                     <div key={index} className='col-lg-3 col-sm-6 col-md-6 mb-3 position-relative'>
                                         <div className='upper_div'></div>
-                                        <img src={data.image} className="image_" />
+                                        <span className="image_">
+                                            <Image layout='fill' src={data.image} className="object-fit-cover" style={{"objectPosition": "top", "borderRadius": "50%"}}/>
+                                        </span>
                                         <div className='down_div text-center'>
                                             <h4 className='text-white text-uppercase bold-700'>{data.name}</h4>
                                             <h5 className='text-success text-uppercase bold-700'>{data.role}</h5>
@@ -105,7 +110,7 @@ export default function OurCompanyComponent() {
             {/* page five section  */}
             <div className='w-100 company_fivesection pt-5'>
                 <div className='container'>
-                    <GoogleReviewComponents></GoogleReviewComponents>
+                    {/* <GoogleReviewComponents></GoogleReviewComponents> */}
                 </div>
             </div>
             {/* page five section  */}
