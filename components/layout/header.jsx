@@ -2,10 +2,25 @@ import useTranslation from 'next-translate/useTranslation';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useEffect } from 'react';
 
 export default function Header({ page, subpage, title, description, banner }) {
 
     const { t } = useTranslation('common');
+
+    const openToggleMenu = () => {
+        if(document.getElementById("navbarSupportedContent").style.display == "none" || document.getElementById("navbarSupportedContent").style.display == "") {
+            document.getElementById("navbarSupportedContent").style.display = "block"
+            document.getElementById("navbarSupportedContent2").style.display = "block"
+        }else{
+            document.getElementById("navbarSupportedContent").style.display = "none"
+            document.getElementById("navbarSupportedContent2").style.display = "none"
+        }
+    }
+
+    useEffect(() => {
+        
+    }, [])
 
     return (
         <>
@@ -45,14 +60,16 @@ export default function Header({ page, subpage, title, description, banner }) {
             <div className='bg-light box-shadow-1 _navbax_fixed'>
                 <div className='container'>
                     <nav className="navbar navbar-expand-lg navbar-light">
-                        <a className="navbar-brand img_logo_div" href="#">
-                            <Image width={80} height={80} src='/images/logo.png' className='p-2 img_logo box-shadow' />
-                        </a>
-                        <a className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <Link href={"./"}>
+                            <a className="navbar-brand img_logo_div">
+                                <Image width={80} height={80} src='/images/logo.png' className='p-2 img_logo border' />
+                            </a>
+                        </Link>
+                        <a href='#' onClick={() => openToggleMenu()} className="navbar-toggler border-0" id='btn-navbar-toggle'>
                             <span className="navbar-toggler-icon"></span>
                         </a>
 
-                        <div className='row w-100'>
+                        <div className='row w-100' id='navbar_menus'>
 
                             <div className='col-md-6'>
                                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
@@ -95,7 +112,7 @@ export default function Header({ page, subpage, title, description, banner }) {
                                 </div>
                             </div>
                             <div className='col-md-6'>
-                                <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                                <div className="collapse navbar-collapse" id="navbarSupportedContent2">
                                     <ul className="navbar-nav mx-auto w-100">
                                         <li className="nav-item w-100">
                                             <a className="nav-link pull-right" href="#"><button className="btn btn-success btn-sm" type="submit">{t("_header.Get_Started")}</button></a>
