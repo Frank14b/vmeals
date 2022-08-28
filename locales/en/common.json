@@ -30,6 +30,7 @@
     "################# Home Page ##############" : "##################### Home Page ###########",
     "_home" : {
         "How_its_works?" : "How its works?",
-        "Choose_Us" : "Why Customers Choose Us"
+        "Choose_Us" : "Why Customers Choose Us",
+        "book_appointment": "Book Appointment"
     } 
 }

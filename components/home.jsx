@@ -8,10 +8,12 @@ import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function HomeComponent() {
     const { t } = useTranslation('common');
     const [slideLoading, setSlideLoading] = useState(false)
+    const [slideLoading1, setSlideLoading1] = useState(true)
 
     const howItsWorkData = [
         {
@@ -62,18 +64,18 @@ export default function HomeComponent() {
     ]
 
     useEffect(() => {
-        // setSlideLoading(true)
+        setSlideLoading1(true)
         setTimeout(() => {
-            setSlideLoading(false)
-        }, 1000);
+            setSlideLoading1(false)
+        }, 1500);
     }, [])
 
 
     return (
         <>
             <Header
-                page={"home"} 
-                description="We are the best meal plan and monthly food delivery company in Dubai (UAE). We provide every day freshly prepared, handmade, &amp; personalized healthy meals." 
+                page={"home"}
+                description="We are the best meal plan and monthly food delivery company in Dubai (UAE). We provide every day freshly prepared, handmade, &amp; personalized healthy meals."
                 title={"Home"}
                 banner={"./images/homebanner.webp"}>
             </Header>
@@ -81,9 +83,12 @@ export default function HomeComponent() {
             {/* home page first section  */}
             <div className='w-100 homepage_firstsection position-relative'>
                 {
-                    (slideLoading) ? (
+                    (slideLoading1) ? (
                         <>
-                            <Image alt='Vmeals' src={"/images/homebanner.webp"} layout={'fill'} className="w-100 image_" style={{ "objectFit": "contain" }} />
+                            <div className='col-md-6 mx-auto border-radius' style={{ "marginTop": "10em" }}>
+                                <Skeleton baseColor='#E1F0E0' count={5} />
+                                <div className='text-center bold-400'>Loading...</div>
+                            </div>
                         </>
                     ) : (
                         <>
@@ -120,7 +125,7 @@ export default function HomeComponent() {
                                             <Image alt='meals' src={data.image} height={150} width={150} />
                                         </div>
                                         <div className='col-md-12 d-flex'>
-                                            <div className='number bold-700'><a>{(index + 1)}.</a></div>
+                                            <div className='number bold-700'><a href='#'>{(index + 1)}.</a></div>
                                             <div className='text-left'>
                                                 <h4 className='bold-700 t-22 mt-5 text-success'>{data.title}</h4>
                                                 {data.description}
@@ -188,6 +193,17 @@ export default function HomeComponent() {
                             <p className='bold-700 t-20 mt-3'>
                                 Our expert are at your fingertips, get in touch to find the right plan!
                             </p>
+
+                            <h6 className='text-success t-16 bold-700 my-4 d-flex'><Image width={20} height={20} src={"/images/arrow-right.webp"} alt="healt" className='' />&nbsp; <span style={{ 'marginTop': "2px", 'marginLeft': '7px' }}>Certified Experts</span></h6>
+                            <h6 className='text-success t-16 bold-700 my-4 d-flex'><Image width={20} height={20} src={"/images/arrow-right.webp"} alt="fitness" className='' />&nbsp; <span style={{ 'marginTop': "2px", 'marginLeft': '7px' }}>Plan Tailored to achieve your goals</span></h6>
+                            <h6 className='text-success t-16 bold-700 my-4 d-flex'><Image width={20} height={20} src={"/images/arrow-right.webp"} alt="plan" className='' />&nbsp; <span style={{ 'marginTop': "2px", 'marginLeft': '7px' }}>Expert advice to answer your queries</span></h6>
+                            <h6 className='text-success t-16 bold-700 my-4 d-flex'><Image width={20} height={20} src={"/images/arrow-right.webp"} alt="appointment" className='' />&nbsp; <span style={{ 'marginTop': "2px", 'marginLeft': '7px' }}>No additional cost</span></h6>
+                            <br />
+
+                            <Link href={"https://wa.me/+971562922081"} target="_blank" rel='noreferrer'>
+                                <button className='btn btn-md btn-success'>{t("_home.book_appointment")}</button>
+                            </Link>
+
                         </div>
                     </div>
                 </div>

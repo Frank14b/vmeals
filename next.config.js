@@ -1,5 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextTranslate = require('next-translate');
+// const withCss = require("@zeit/next-css");
+// const withPurgeCss = require("next-purgecss");
 
 const nextConfig = {
   reactStrictMode: true,

@@ -61,9 +61,9 @@ export default function Header({ page, subpage, title, description, banner }) {
                 <div className='container'>
                     <nav className="navbar navbar-expand-lg navbar-light">
                         <Link href={"./"}>
-                            <a className="navbar-brand img_logo_div">
-                                <Image width={80} height={80} src='/images/logo.png' className='p-2 img_logo border' />
-                            </a>
+                            <span className="navbar-brand img_logo_div">
+                                <Image alt='Vmeals' width={80} height={80} src='/images/logo.png' className='p-2 img_logo border' />
+                            </span>
                         </Link>
                         <a href='#' onClick={() => openToggleMenu()} className="navbar-toggler border-0" id='btn-navbar-toggle'>
                             <span className="navbar-toggler-icon"></span>
