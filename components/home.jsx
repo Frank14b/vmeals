@@ -64,7 +64,7 @@ export default function HomeComponent() {
     ]
 
     useEffect(() => {
-        setSlideLoading1(true)
+        setSlideLoading1(false)
         setTimeout(() => {
             setSlideLoading1(false)
         }, 1500);
