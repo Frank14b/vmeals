@@ -11,7 +11,7 @@ import Image from 'next/image';
 
 export default function HomeComponent() {
     const { t } = useTranslation('common');
-    const [slideLoading, setSlideLoading] = useState(true)
+    const [slideLoading, setSlideLoading] = useState(false)
 
     const howItsWorkData = [
         {
@@ -65,7 +65,7 @@ export default function HomeComponent() {
         setSlideLoading(true)
         setTimeout(() => {
             setSlideLoading(false)
-        }, 2000);
+        }, 1000);
     }, [])
 
 
@@ -84,10 +84,6 @@ export default function HomeComponent() {
                     (slideLoading) ? (
                         <>
                             <Image alt='Vmeals' src={"/images/homebanner.webp"} layout={'fill'} className="w-100 image_" style={{ "objectFit": "contain" }} />
-                            {/* <div className='col-md-6 mx-auto mt-5 pt-5 border-radius'>
-                                <Skeleton baseColor='#E1F0E0' count={3} />
-                                <div className='text-center bold-400'>Loading...</div>
-                            </div> */}
                         </>
                     ) : (
                         <>
