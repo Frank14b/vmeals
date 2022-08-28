@@ -1,5 +1,4 @@
 import useTranslation from 'next-translate/useTranslation';
-import GoogleReviewComponents from './googlereviews';
 import SliderComponent from './homepage/sliderComponent';
 import Footer from './layout/footer';
 import Header from './layout/header';
@@ -144,15 +143,6 @@ export default function OurPartnersComponent() {
                 </div>
             </div>
             {/* home page first section  */}
-
-
-            {/* page five section  */}
-            <div className='w-100 company_fivesection pt-5'>
-                <div className='container'>
-                    <GoogleReviewComponents></GoogleReviewComponents>
-                </div>
-            </div>
-            {/* page five section  */}
 
 
             <Footer></Footer>

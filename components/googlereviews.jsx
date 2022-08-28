@@ -13,6 +13,7 @@ import "swiper/css/free-mode";
 import "swiper/css/pagination";
 // import required modules
 import { FreeMode, Pagination } from "swiper";
+import ApiCalls from '../utils/apicalls';
 
 
 export default function GoogleReviewComponents() {
@@ -20,16 +21,14 @@ export default function GoogleReviewComponents() {
     const axios = require('axios');
     const [allreview, setAllreviews] = useState([])
 
-
     function getGoogleReviews() {
-        return new Promise((resolve, reject) => {
-            const url = 'https://maps.googleapis.com/maps/api/place/details/json?place_id=ChIJcTFhgEdzXz4RJtANMZv4OJs&fields=reviews,formatted_address,name,rating,user_ratings_total,utc_offset&key=AIzaSyBrZ_0yZnN55oIAb4YoyTUu0NTii1T5yx8';
-            axios.get(url)
-                .then(res => {
-                    if (res.data.status == 'OK') {
-                        setAllreviews(res.data)
-                    }
-                })
+        let result = ApiCalls.getAllReviews()
+        result.then(response => {
+            if(response.status == 200) {
+                if(response.data.data.status == "OK") {
+                    setAllreviews(response.data.data)
+                }
+            }
         })
     }
 
