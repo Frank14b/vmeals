@@ -20,7 +20,7 @@ export default function Footer() {
                 <footer className="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top-3">
                     <p className="col-md-4 mb-0 copyright">VMeals - &copy; All Rights Reserved - 2022</p>
 
-                    <ul className="nav col-md-4 justify-content-end">
+                    <ul className="nav col-md-4 justify-content-end text-right">
                         <li className="nav-item"><a href="#" className="nav-link px-2">Sitemap</a></li>
                         <li className="nav-item"><a href="#" className="nav-link px-2">{t("_footer.terms_of_conditions")}</a></li>
                         <li className="nav-item"><a href="#" className="nav-link px-2">{t("_footer.privacy_policy")}</a></li>

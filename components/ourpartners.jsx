@@ -39,7 +39,7 @@ export default function OurPartnersComponent() {
         setSlideLoading(true)
         setTimeout(() => {
             setSlideLoading(false)
-        }, 2000);
+        }, 1300);
     }, [])
 
 

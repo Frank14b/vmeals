@@ -1,6 +1,6 @@
 import useTranslation from 'next-translate/useTranslation';
 import Image from 'next/image';
-// import GoogleReviewComponents from './googlereviews';
+import GoogleReviewComponents from './googlereviews';
 import Footer from './layout/footer';
 import Header from './layout/header';
 
@@ -110,7 +110,7 @@ export default function OurCompanyComponent() {
             {/* page five section  */}
             <div className='w-100 company_fivesection pt-5'>
                 <div className='container'>
-                    {/* <GoogleReviewComponents></GoogleReviewComponents> */}
+                    <GoogleReviewComponents></GoogleReviewComponents>
                 </div>
             </div>
             {/* page five section  */}

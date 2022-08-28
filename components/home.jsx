@@ -1,6 +1,6 @@
 import useTranslation from 'next-translate/useTranslation';
 import Head from 'next/head';
-// import GoogleReviewComponents from './googlereviews';
+import GoogleReviewComponents from './googlereviews';
 import SliderComponent from './homepage/sliderComponent';
 import Footer from './layout/footer';
 import Header from './layout/header';
@@ -201,7 +201,7 @@ export default function HomeComponent() {
                             <br />
 
                             <Link href={"https://wa.me/+971562922081"} target="_blank" rel='noreferrer'>
-                                <button className='btn btn-md btn-success'>{t("_home.book_appointment")}</button>
+                                <a target={"_blank"} rel="noreferrer" className='btn btn-md btn-success'>{t("_home.book_appointment")}</a>
                             </Link>
 
                         </div>
@@ -214,7 +214,7 @@ export default function HomeComponent() {
             {/* home page five section  */}
             <div className='w-100 homepage_fivesection pt-5'>
                 <div className='container'>
-                    {/* <GoogleReviewComponents></GoogleReviewComponents> */}
+                    <GoogleReviewComponents></GoogleReviewComponents>
                 </div>
             </div>
             {/* home page five section  */}

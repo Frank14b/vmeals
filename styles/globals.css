@@ -186,6 +186,10 @@ a {
   object-fit: cover;
 }
 
+.border-1 {
+  border: 1px solid #41A53D;
+}
+
 .border-1-5 {
   border: 1.5px solid #41A53D;
 }
@@ -315,6 +319,10 @@ a {
     margin-top: 10px;
   }
 
+  .footer .text-right {
+    text-align: left !important;
+  }
+
   ._footer_custom .d-flex {
     display: block !important;
   }
@@ -336,6 +344,18 @@ a {
   .company_firstsection .banner {
     font-size: 35px !important;
   }
+}
+
+.pull-left {
+  float: left;
+}
+
+.cut-text-3 {
+  width: 100%;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
 
 @import "./font.css";
