@@ -76,17 +76,17 @@ export default function FaqsComponent() {
 
                             <p>
                                 <Link href={"tel:+971 56 29 22 081"}>
-                                    <a className='t-18 text-success' target={"_blank"} rel="noreferrer"><FaPhone className='pull-left mt-1'></FaPhone>&nbsp; +971 56 29 22 081</a>
+                                    <a className='t-18 text-success text-decoration-none' target={"_blank"} rel="noreferrer"><FaPhone className='pull-left mt-1'></FaPhone>&nbsp; +971 56 29 22 081</a>
                                 </Link>
                             </p>
                             <p>
                                 <Link href={"mailto:info@vmeals.ae"}>
-                                    <a className='t-18 text-success' target={"_blank"} rel="noreferrer"><FaMailBulk className='pull-left mt-1'></FaMailBulk>&nbsp; info@vmeals.ae</a>
+                                    <a className='t-18 text-success text-decoration-none' target={"_blank"} rel="noreferrer"><FaMailBulk className='pull-left mt-1'></FaMailBulk>&nbsp; info@vmeals.ae</a>
                                 </Link>
                             </p>
                             <p>
                                 <Link href={""}>
-                                    <a className='t-18 text-success' target={"_blank"} rel="noreferrer"><FaMapMarker className='pull-left mt-1'></FaMapMarker>&nbsp; Shop 5, Oxford Tower, Business Bay, Dubai, U.A.E</a>
+                                    <a className='t-18 text-success text-decoration-none' target={"_blank"} rel="noreferrer"><FaMapMarker className='pull-left mt-1'></FaMapMarker>&nbsp; Shop 5, Oxford Tower, Business Bay, Dubai, U.A.E</a>
                                 </Link>
                             </p>
                         </div>
