@@ -10,6 +10,11 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif; */
 }
 
+.text-decoration-none {
+  text-decoration: none !important;
+  color: #333 !important;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -151,10 +156,6 @@ a {
 
 .border-radius {
   border-radius: 8px;
-}
-
-.text-success {
-  color: #41A53D !important;
 }
 
 .homepage_secondsection .number a {
@@ -376,6 +377,10 @@ a {
 
 .login_btn {
   width: 100px;
+}
+
+.text-success {
+  color: #41A53D !important;
 }
 
 @import "./font.css";

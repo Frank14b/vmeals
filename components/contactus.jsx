@@ -208,22 +208,22 @@ export default function ContactUsComponent() {
 
                             <p>
                                 <Link href={"tel:+971 56 29 22 081"}>
-                                    <a className='t-20 my-2' target={"_blank"} rel="noreferrer"><FaPhone className='pull-left mt-1 text-success'></FaPhone>&nbsp; +971 56 29 22 081</a>
+                                    <a className='t-20 my-2 text-decoration-none' target={"_blank"} rel="noreferrer"><FaPhone className='pull-left mt-1 text-success'></FaPhone>&nbsp; +971 56 29 22 081</a>
                                 </Link>
                             </p>
                             <p>
                                 <Link href={"mailto:info@vmeals.ae"}>
-                                    <a className='t-20 my-2' target={"_blank"} rel="noreferrer"><FaMailBulk className='pull-left mt-1 text-success'></FaMailBulk>&nbsp; info@vmeals.ae</a>
+                                    <a className='t-20 my-2 text-decoration-none' target={"_blank"} rel="noreferrer"><FaMailBulk className='pull-left mt-1 text-success'></FaMailBulk>&nbsp; info@vmeals.ae</a>
                                 </Link>
                             </p>
                             <p>
                                 <Link href={"#"}>
-                                    <a className='t-20 my-2' rel="noreferrer"><FaClock className='pull-left mt-1 text-success'></FaClock>&nbsp; Saturday – Thursday | 9:00am – 9:00pm</a>
+                                    <a className='t-20 my-2 text-decoration-none' rel="noreferrer"><FaClock className='pull-left mt-1 text-success'></FaClock>&nbsp; Saturday – Thursday | 9:00am – 9:00pm</a>
                                 </Link>
                             </p>
                             <p>
                                 <Link href={"#"}>
-                                    <a className='t-20 my-2' rel="noreferrer"><FaMapMarker className='pull-left mt-1 text-success'></FaMapMarker>&nbsp; Shop 5, Oxford Tower, Business Bay, Dubai, U.A.E</a>
+                                    <a className='t-20 my-2 text-decoration-none' rel="noreferrer"><FaMapMarker className='pull-left mt-1 text-success'></FaMapMarker>&nbsp; Shop 5, Oxford Tower, Business Bay, Dubai, U.A.E</a>
                                 </Link>
                             </p>
 
