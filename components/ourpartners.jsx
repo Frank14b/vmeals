@@ -5,6 +5,10 @@ import Header from './layout/header';
 import { useEffect, useState } from 'react';
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+import Link from 'next/link';
+import { Button, FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 
 export default function OurPartnersComponent() {
     const { t } = useTranslation('common');
@@ -33,6 +37,19 @@ export default function OurPartnersComponent() {
         { description: "", image: "./images/homebanner.webp" },
         { description: "", image: "./images/homebanner.webp" }
     ]
+
+
+    const howContactYou = (e) => {
+
+    }
+
+    const InquireType = (e) => {
+
+    }
+
+    const setMessageFunction = (e) => {
+
+    }
 
     useEffect(() => {
         setSlideLoading(true)
@@ -77,75 +94,105 @@ export default function OurPartnersComponent() {
                         </div>
 
                         <div className='col-md-6'>
-                            <div className='bg-success-light w-100 p-3 border-radius' style={{ "min-height": "60vh" }}>
-                                <form className='w-100' method='post'>
-                                    <div className='row mb-3'>
-                                        <div className='col-md-12 py-3'>
-                                            <h2 className='text-success bold-700'>{t("Register your Company")}</h2>
-                                        </div>
-                                    </div>
+                            <div className='bg-success-light w-100 p-3 border-radius' style={{ minHeight: "60vh" }}>
 
-                                    <div className='row mb-3'>
+                                <div className='row mb-3'>
+                                    <div className='col-md-12 py-3'>
+                                        <h2 className='text-success bold-700'>{t("Register your Company")}</h2>
+                                    </div>
+                                </div>
+
+                                <Box
+                                    component="form"
+                                    sx={{
+                                        '& .MuiTextField-root': { m: 0, width: '100%' },
+                                    }}
+                                    noValidate
+                                    autoComplete="off"
+                                >
+                                    <div className='row my-3'>
                                         <div className='col-md-6'>
-                                            <label className='w-100'>First Name <span className='text-danger'>*</span>
-                                                <input type={"text"} className="form-control" placeholder='First name' required />
-                                            </label>
-                                        </div>
-
-                                        <div className='col-md-6'>
-                                            <label className='w-100'>Last Name <span className='text-danger'>*</span>
-                                                <input type={"text"} className="form-control" placeholder='Last name' required />
-                                            </label>
-                                        </div>
-                                    </div>
-
-                                    <div className='row mb-3'>
-                                        <div className='col-md-12'>
-                                            <label className='w-100'>Email <span className='text-danger'>*</span>
-                                                <input type={"email"} className="form-control" placeholder='Email' required />
-                                            </label>
-                                        </div>
-                                    </div>
-
-                                    <div className='row mb-3'>
-                                        <div className='col-md-12'>
-                                            <label className='w-100'>Mobile Number <span className='text-danger'>*</span>
-                                                <input type={"number"} className="form-control" placeholder='Mobile Number' required />
-                                            </label>
-                                        </div>
-                                    </div>
-
-                                    <div className='row mb-3'>
-                                        <div className='col-md-6'>
-                                            <label className='w-100'>Company Name <span className='text-danger'>*</span>
-                                                <input type={"text"} className="form-control" placeholder='Company Name' required />
-                                            </label>
+                                            <TextField
+                                                required
+                                                className='bg-white border-radius box-shadow'
+                                                id="outlined-required1"
+                                                label="First Name"
+                                                defaultValue=""
+                                            />
                                         </div>
 
                                         <div className='col-md-6'>
-                                            <label className='w-100'>Your Designation <span className='text-danger'>*</span>
-                                                <input type={"text"} className="form-control" placeholder='Your Designation' required />
-                                            </label>
+                                            <TextField
+                                                required
+                                                className='bg-white border-radius box-shadow'
+                                                id="outlined-required2"
+                                                label="Last Name"
+                                                defaultValue=""
+                                                type={"text"}
+                                            />
                                         </div>
                                     </div>
 
-                                    <div className='row mb-3 mt-4'>
-                                        <div className='col-md-12'>
-                                            <br /><br />
-                                            <button className='w-100 btn btn-success btn-sm text-center'>Submit</button>
+                                    <div className='row'>
+                                        <div className='col-md-12 my-3'>
+                                            <TextField
+                                                required
+                                                className='bg-white border-radius box-shadow'
+                                                id="outlined-required3"
+                                                label="Email"
+                                                defaultValue=""
+                                                type={"email"}
+                                            />
+                                        </div>
+
+                                        <div className='col-md-12 my-3'>
+                                            <TextField
+                                                required
+                                                className='bg-white border-radius box-shadow'
+                                                id="outlined-required4"
+                                                label="Mobile Number"
+                                                defaultValue=""
+                                                type={"number"}
+                                            />
                                         </div>
                                     </div>
 
-                                </form>
+                                    <div className='row my-3'>
+                                        <div className='col-md-6 my-3'>
+                                            <TextField
+                                                required
+                                                className='bg-white border-radius box-shadow'
+                                                id="outlined-required5"
+                                                label="Company Name"
+                                                defaultValue=""
+                                            />
+                                        </div>
+
+                                        <div className='col-md-6 my-3'>
+                                            <TextField
+                                                required
+                                                className='bg-white border-radius box-shadow'
+                                                id="outlined-required6"
+                                                label="Your Designation"
+                                                defaultValue=""
+                                                type={"text"}
+                                            />
+                                        </div>
+                                    </div>
+
+                                    <div className='col-md-12 my-3'>
+                                        <Button variant="contained" color='success' className="w-100 border-radius">Submit</Button>
+                                    </div>
+                                </Box>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div >
             {/* home page first section  */}
 
 
-            <Footer></Footer>
+            < Footer ></Footer >
         </>
     );
 }

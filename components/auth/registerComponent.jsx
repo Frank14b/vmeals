@@ -1,13 +1,13 @@
 import useTranslation from 'next-translate/useTranslation';
-import Footer from './layout/footer';
-import Header from './layout/header';
+import Footer from '../layout/footer';
+import Header from '../layout/header';
 import { useEffect, useState } from 'react';
 import Accordion from 'react-bootstrap/Accordion';
 import { FaPhone, FaMailBulk, FaMapMarker } from "react-icons/fa";
 import Link from 'next/link';
 
 
-export default function FaqsComponent() {
+export default function RegisterComponent() {
     const { t } = useTranslation('common');
     const [pageLoading, setPageloading] = useState(true)
 

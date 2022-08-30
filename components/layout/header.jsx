@@ -9,17 +9,17 @@ export default function Header({ page, subpage, title, description, banner }) {
     const { t } = useTranslation('common');
 
     const openToggleMenu = () => {
-        if(document.getElementById("navbarSupportedContent").style.display == "none" || document.getElementById("navbarSupportedContent").style.display == "") {
+        if (document.getElementById("navbarSupportedContent").style.display == "none" || document.getElementById("navbarSupportedContent").style.display == "") {
             document.getElementById("navbarSupportedContent").style.display = "block"
             document.getElementById("navbarSupportedContent2").style.display = "block"
-        }else{
+        } else {
             document.getElementById("navbarSupportedContent").style.display = "none"
             document.getElementById("navbarSupportedContent2").style.display = "none"
         }
     }
 
     useEffect(() => {
-        
+
     }, [])
 
     return (
@@ -106,7 +106,9 @@ export default function Header({ page, subpage, title, description, banner }) {
                                             </div>
                                         </li>
                                         <li className="nav-item">
-                                            <a className={`nav-link ${(page == "contact") && "active"}`} href="#">{t("_header.Need_Assistance")} ?</a>
+                                            <Link href={"/contact-us"}>
+                                                <a className={`nav-link ${(page == "contactus") && "active"}`}>{t("_header.Need_Assistance")} ?</a>
+                                            </Link>
                                         </li>
                                     </ul>
                                 </div>
@@ -115,8 +117,12 @@ export default function Header({ page, subpage, title, description, banner }) {
                                 <div className="collapse navbar-collapse" id="navbarSupportedContent2">
                                     <ul className="navbar-nav mx-auto w-100">
                                         <li className="nav-item w-100">
-                                            <a className="nav-link pull-right" href="#"><button className="btn btn-success btn-sm" type="submit">{t("_header.Get_Started")}</button></a>
-                                            <a className="nav-link pull-right" href="#"><button className="btn btn-outline-success mx-2 btn-sm" type="submit">{t("_header.Login")}</button></a>
+                                            <Link href={"/meal-plans"}>
+                                                <a className="nav-link pull-right"><button className="btn btn-success btn-sm login_btn">{t("_header.Get_Started")}</button></a>
+                                            </Link>
+                                            <Link href={"/login"}>
+                                                <a className="nav-link pull-right"><button className="btn btn-outline-success mx-2 btn-sm login_btn">{t("_header.Login")}</button></a>
+                                            </Link>
                                             <span className='pull-right d-flex'>
                                                 <Link href={"/"} locale="en">
                                                     <a className="nav-link" href="#">{t("_header.English")}</a>
