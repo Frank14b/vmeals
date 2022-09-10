@@ -8,6 +8,7 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Link from 'next/link';
 import { Button, FormControl, InputLabel, MenuItem, Select } from '@mui/material';
+import Constants from '../utils/constants';
 
 
 export default function ContactUsComponent() {
@@ -229,8 +230,8 @@ export default function ContactUsComponent() {
 
                             <h5 className='bold-700 my-4'>{t("Connect with us!")}</h5>
 
-                            <Link href={""}>
-                                <a className='btn btn-success btn-md' target={"_blank"} rel="noreferrer"><FaWhatsapp></FaWhatsapp>&nbsp; Whatsapp</a>
+                            <Link href={Constants.whtasapp_link}>
+                                <a className='btn btn-success btn-md px-4' target={"_blank"} rel="noreferrer"><FaWhatsapp></FaWhatsapp>&nbsp; Whatsapp</a>
                             </Link>
                         </div>
 

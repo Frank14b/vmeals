@@ -12,7 +12,7 @@ export default function Footer() {
                         <h3 className='bold-700'>Subscribe to our newsletter for exclusive promotions!</h3>
                         <div className='col-md-7 col-sm-10 mt-3 mx-auto d-flex'>
                             <input required className="form-control mr-sm-2" type="email" placeholder="Email Address" aria-label="Subscribe" />
-                            <button className="btn btn-success mx-2 my-2 my-sm-0" type="submit">Subscribe</button>
+                            <button className="btn btn-success mx-2 my-2 my-sm-0 px-3" type="submit">Subscribe</button>
                         </div>
                     </form>
                 </div>

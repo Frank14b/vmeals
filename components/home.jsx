@@ -9,29 +9,16 @@ import 'react-loading-skeleton/dist/skeleton.css'
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import ApiCalls from '../utils/apicalls';
+import Constants from '../utils/constants';
 
 export default function HomeComponent() {
     const { t } = useTranslation('common');
-    const [slideLoading, setSlideLoading] = useState(false)
+    const [slideLoading, setSlideLoading] = useState(true)
     const [slideLoading1, setSlideLoading1] = useState(true)
-
-    const howItsWorkData = [
-        {
-            "image": "https://i0.wp.com/workspace.vmeals.ae/wp-content/uploads/2022/07/Choose-Plan.png?resize=150%2C150&ssl=1",
-            "title": "SELECT A PLAN",
-            "description": "I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo."
-        },
-        {
-            "image": "https://i0.wp.com/workspace.vmeals.ae/wp-content/uploads/2022/07/Enter-Information.png?resize=150%2C150&ssl=1",
-            "title": "SELECT A PLAN",
-            "description": "I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo."
-        },
-        {
-            "image": "https://i0.wp.com/workspace.vmeals.ae/wp-content/uploads/2022/07/Eating.png?resize=150%2C150&ssl=1",
-            "title": "SELECT A PLAN",
-            "description": "I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo."
-        }
-    ]
+    const [slideData, setSlideData] = useState([])
+    const [howItsWork, setHowItsWork] = useState([])
+    const [chooseUs, setChooseUs] = useState([])
 
     const chooseUsData = [
         {
@@ -57,18 +44,51 @@ export default function HomeComponent() {
         }
     ]
 
-    const sideElement = [
-        { description: "I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.", image: "./images/homebanner.webp" },
-        { description: "I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.", image: "./images/homebanner.webp" },
-        { description: "I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.", image: "./images/homebanner.webp" },
-    ]
-
     useEffect(() => {
+        getHomeSlider()
+        getWhyChooseUs()
+        getHowItsWork()
         setSlideLoading1(false)
-        setTimeout(() => {
-            setSlideLoading1(false)
-        }, 1500);
     }, [])
+
+    const getHomeSlider = () => {
+        let result = ApiCalls.getHomePageDatas()
+        result.then(response => {
+            if(response.data.status == 200) {
+                setSlideData(response.data.data)
+                setSlideLoading1(false)
+            }
+            setSlideLoading1(false)
+        }).catch(e => {
+            setSlideLoading1(false)
+        })
+    }
+
+    const getHowItsWork = () => {
+        let result = ApiCalls.getHomePageHowItsWork()
+        result.then(response => {
+            if(response.data.status == 200) {
+                setHowItsWork(response.data.data)
+                setSlideLoading(false)
+            }
+            setSlideLoading(false)
+        }).catch(e => {
+            setSlideLoading(false)
+        })
+    }
+
+    const getWhyChooseUs = () => {
+        let result = ApiCalls.getHomePageChooseUs()
+        result.then(response => {
+            if(response.data.status == 200) {
+                setChooseUs(response.data.data)
+                setSlideLoading(false)
+            }
+            setSlideLoading(false)
+        }).catch(e => {
+            setSlideLoading(false)
+        })
+    }
 
 
     return (
@@ -93,7 +113,7 @@ export default function HomeComponent() {
                     ) : (
                         <>
 
-                            <SliderComponent slideData={sideElement}></SliderComponent>
+                            <SliderComponent slideData={slideData} page={"homepage"}></SliderComponent>
                         </>
 
                     )
@@ -119,16 +139,16 @@ export default function HomeComponent() {
                                     </div>
                                 </>
                             ) : (
-                                howItsWorkData.map((data, index) => (
+                                howItsWork.map((data, index) => (
                                     <div key={index} className='col-md-4'>
                                         <div className='col-md-12 text-center'>
-                                            <Image alt='meals' src={data.image} height={150} width={150} />
+                                            <Image alt='meals' src={data.customImage.guid} height={150} width={150} />
                                         </div>
                                         <div className='col-md-12 d-flex'>
                                             <div className='number bold-700'><a href='#'>{(index + 1)}.</a></div>
                                             <div className='text-left'>
-                                                <h4 className='bold-700 t-22 mt-5 text-success'>{data.title}</h4>
-                                                {data.description}
+                                                <h4 className='bold-700 t-22 mt-5 text-success'>{data.postMeta.title[0]}</h4>
+                                                <div dangerouslySetInnerHTML={{__html: data.postMeta.details[0]}}></div>
                                             </div>
                                         </div>
                                     </div>
@@ -159,13 +179,13 @@ export default function HomeComponent() {
                                     </div>
                                 </>
                             ) : (
-                                chooseUsData.map((data, index) => (
+                                chooseUs.map((data, index) => (
                                     <div key={index} className='col-md-6 col-lg-3 mb-4 col-sm-6 p-3'>
                                         <div className='border-1-5 w-100 position-relative box-shadow bg-white p-3 border-radius'>
-                                            <span className='bg-white border-1-5 image_'><Image alt='plans' src={data.image} className="p-3" layout={'fill'} /></span>
+                                            <span className='bg-white border-1-5 image_'><Image alt='plans' src={data.customImage.guid} className="p-3" layout={'fill'} /></span>
                                             <div className='col-md-12 mt-5 text-center'>
-                                                <h4 className='text-success bold-700'>{data.title}</h4>
-                                                <p className='text-left'>{data.description}</p>
+                                                <h4 className='text-success bold-700'>{data.postMeta.title[0]}</h4>
+                                                <p className='text-left' dangerouslySetInnerHTML={{__html: data.postMeta.details[0]}}></p>
                                             </div>
                                         </div>
                                     </div>
@@ -200,8 +220,8 @@ export default function HomeComponent() {
                             <h6 className='text-success t-16 bold-700 my-4 d-flex'><Image width={20} height={20} src={"/images/arrow-right.webp"} alt="appointment" className='' />&nbsp; <span style={{ 'marginTop': "2px", 'marginLeft': '7px' }}>No additional cost</span></h6>
                             <br />
 
-                            <Link href={"https://wa.me/+971562922081"} target="_blank" rel='noreferrer'>
-                                <a target={"_blank"} rel="noreferrer" className='btn btn-md btn-success'>{t("_home.book_appointment")}</a>
+                            <Link href={Constants.whtasapp_link} target="_blank" rel='noreferrer'>
+                                <a target={"_blank"} rel="noreferrer" className='btn btn-md btn-success px-3'>{t("_home.book_appointment")}</a>
                             </Link>
 
                         </div>

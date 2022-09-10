@@ -16,7 +16,8 @@ const getApiNext = () => {
 }
 
 const AppLink = {
-    "API_NEXT" : getApiNext()
+    "API_NEXT" : getApiNext(),
+    "API_WP": "https://workspace.vmeals.ae/wp-json/v2/"
 }
 
 export default AppLink

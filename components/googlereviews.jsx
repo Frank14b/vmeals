@@ -60,7 +60,7 @@ export default function GoogleReviewComponents() {
 
                                 <div className='col-md-6'>
                                     <Link href={"https://www.google.com/search?q=vmeals&authuser=1&source=hp&ei=AW0LY5nLBKrIlwTR843YCg&iflsig=AJiK0e8AAAAAYwt7EUfptHPb5khN2fnurt2EVcSTIOTr&ved=0ahUKEwjZz5bA0en5AhUq5IUKHdF5A6sQ4dUDCAc&uact=5&oq=vmeals&gs_lcp=Cgdnd3Mtd2l6EAMyCwguEIAEEMcBEK8BMgcIABCABBAKMgUIABCABDIKCAAQsQMQsQMQCjIHCAAQsQMQCjIKCAAQsQMQgwEQCjIHCAAQsQMQCjIHCAAQsQMQCjIHCAAQsQMQCjIHCAAQsQMQCjoLCAAQgAQQsQMQgwE6CwguEIAEELEDEIMBOgsILhCABBCxAxDUAjoOCC4QgAQQsQMQxwEQ0QM6CAgAEIAEELEDOg4ILhCxAxCDARDHARDRAzoQCC4QsQMQgwEQxwEQ0QMQCjoOCC4QgAQQxwEQ0QMQ1AJQAFizBGDfBWgAcAB4AIAB6AGIAcAIkgEFMC4xLjSYAQCgAQE&sclient=gws-wiz#lrd=0x3e5f734780613171:0x9b38f89b310dd026,3,,,"}>
-                                        <a target={"_blank"} rel="noreferrer" className='btn btn-md btn-success pull-right mt-3'>Write a Review</a>
+                                        <a target={"_blank"} rel="noreferrer" className='btn btn-md btn-success pull-right mt-3 px-3'>Write a Review</a>
                                     </Link>
                                 </div>
                             </div>

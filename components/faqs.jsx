@@ -5,52 +5,44 @@ import { useEffect, useState } from 'react';
 import Accordion from 'react-bootstrap/Accordion';
 import { FaPhone, FaMailBulk, FaMapMarker } from "react-icons/fa";
 import Link from 'next/link';
+import ApiCalls from '../utils/apicalls';
+import Constants from '../utils/constants';
 
 
 export default function FaqsComponent() {
     const { t } = useTranslation('common');
     const [pageLoading, setPageloading] = useState(true)
-
-    const firstContentData = {
-        title: "Our Company",
-        description: "We here at <a href='#'>VMeals</a> believe that the foundation of a happy life lies in how healthy and good we feel about ourselves. We are a company devoted to changing lives by raising awareness and providing solutions for a healthy lifestyle.We are here to help you get a step closer to your goals, whether it is to manage a business lifestyle or initiating a transformation journey; we’ve got you covered! We have brought together a team of chefs and nutritionists with over 100 years of combined industry experience, collaborating to make a positive impact on your life.",
-        description2: "“We are here to help you get a step closer to your goals, whether it is to manage a business lifestyle or initiating a transformation journey; we’ve got you covered! We have brought together a team of chefs and nutritionists with over 100 years of combined industry experience, collaborating to make a positive impact on your life”",
-        banner: "Healthy is not boring",
-        image: "https://i0.wp.com/workspace.vmeals.ae/wp-content/uploads/2022/07/DSC_8635.jpg?resize=1024%2C680&ssl=1"
-    }
-
-    const secondContentData = {
-        title: "Our Vision Mission & Goal",
-        description: "We here at <a href='#'>VMeals</a> believe that the foundation of a happy life lies in how healthy and good we feel about ourselves. We are a company devoted to changing lives by raising awareness and providing solutions for a healthy lifestyle.We are here to help you get a step closer to your goals, whether it is to manage a business lifestyle or initiating a transformation journey; we’ve got you covered! We have brought together a team of chefs and nutritionists with over 100 years of combined industry experience, collaborating to make a positive impact on your life.",
-        image: "https://i0.wp.com/workspace.vmeals.ae/wp-content/uploads/2022/07/Vision-Mission-1.jpg?resize=1024%2C403&ssl=1"
-    }
-
-    const thirdContentData = [
-        {
-            image: "https://i0.wp.com/workspace.vmeals.ae/wp-content/uploads/2022/04/CEO.jpg?fit=952%2C1213&ssl=1",
-            name: "ARAJ HASSAN",
-            role: "CEO"
-        },
-        {
-            image: "https://i0.wp.com/workspace.vmeals.ae/wp-content/uploads/2022/07/Maria.jpg?fit=4252%2C5102&ssl=1",
-            name: "Maria",
-            role: "MARKETING MANAGER"
-        },
-        {
-            image: "https://i0.wp.com/workspace.vmeals.ae/wp-content/uploads/2022/07/Gunjan.jpg?fit=4252%2C5102&ssl=1",
-            name: "GUNJAN",
-            role: "NUTRITIONIST"
-        },
-        {
-            image: "https://i0.wp.com/workspace.vmeals.ae/wp-content/uploads/2022/07/Amal.jpg?fit=4252%2C5102&ssl=1",
-            name: "Amal",
-            role: "DIETITIAN"
-        }
-    ]
+    const [faqsLeft, setFaqsLeft] = useState([])
+    const [faqsList, setFaqsList] = useState([])
 
     useEffect(() => {
-        setPageloading(true)
+        getFaqsLeftSide()
+        getFaqsList()
     }, [])
+
+    const getFaqsLeftSide = () => {
+        let result = ApiCalls.getFaqsLeftSideData()
+        result.then(response => {
+            if (response.data.status == 200) {
+                setFaqsLeft(response.data.data)
+            }
+            setPageloading(true)
+        }).catch(e => {
+            setPageloading(false)
+        })
+    }
+
+    const getFaqsList = () => {
+        let result = ApiCalls.getFaqsList()
+        result.then(response => {
+            if (response.data.status == 200) {
+                setFaqsList(response.data.data)
+            }
+            setPageloading(true)
+        }).catch(e => {
+            setPageloading(false)
+        })
+    }
 
     return (
         <>
@@ -60,19 +52,35 @@ export default function FaqsComponent() {
                 <div className='container mt-5 pt-5' style={{ "minHeight": "80vh" }}>
                     <div className='row mt-5'>
                         <div className='col-md-6 col-lg-6'>
-                            <h1 className='bold-700 text-success'>Every day fresh and healthy meals</h1>
+                            {
+                                (faqsLeft.length > 0) && (
+                                    faqsLeft.map((data, index) => (
+                                        (data.postMeta.type[0] == "__faqs_left_1") && (
+                                            <div key={index}>
+                                                <h1 className='bold-700 text-success'>{data.postMeta.title[0]}</h1>
 
-                            <p>
-                                Experience our fresh and healthy meals every day at your doorstep. You can choose your plan as per your requirements and preferences. Each meal is prepared, packed, and delivered hygienically.
-                            </p>
+                                                <div dangerouslySetInnerHTML={{ __html: data.postMeta.details[0] }} className="mb-2"></div>
+                                            </div>
+                                        )
+                                    ))
+                                )
+                            }
 
-                            <button className='btn btn-md btn-success'>Contact Us</button>
+                            <Link href={Constants.whtasapp_link}><a target="_blank" rel='noreferrer' className='btn btn-md btn-success px-4'>Contact Us</a></Link>
 
-                            <h3 className='bold-700 mt-5'>If you need more help</h3>
+                            {
+                                (faqsLeft.length > 0) && (
+                                    faqsLeft.map((data, index) => (
+                                        (data.postMeta.type[0] == "__faqs_left_2") && (
+                                            <div key={index}>
+                                                <h3 className='bold-700 mt-5'>{data.postMeta.title[0]}</h3>
 
-                            <p className='mb-4'>
-                                If you not sure which diet plan you should choose, you can talk to our experts, and we can suggest to you the best possible option for your health goal.
-                            </p>
+                                                <div dangerouslySetInnerHTML={{ __html: data.postMeta.details[0] }} className="mb-4"></div>
+                                            </div>
+                                        )
+                                    ))
+                                )
+                            }
 
                             <p>
                                 <Link href={"tel:+971 56 29 22 081"}>
@@ -97,30 +105,18 @@ export default function FaqsComponent() {
                                 (pageLoading) && (
                                     <>
                                         <Accordion defaultActiveKey="0">
-                                            <Accordion.Item eventKey="0">
-                                                <Accordion.Header>Accordion Item #1</Accordion.Header>
-                                                <Accordion.Body>
-                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                                                    minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                                    aliquip ex ea commodo consequat. Duis aute irure dolor in
-                                                    reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                                                    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                                                    culpa qui officia deserunt mollit anim id est laborum.
-                                                </Accordion.Body>
-                                            </Accordion.Item>
-                                            <Accordion.Item eventKey="1">
-                                                <Accordion.Header>Accordion Item #2</Accordion.Header>
-                                                <Accordion.Body>
-                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                                                    minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                                    aliquip ex ea commodo consequat. Duis aute irure dolor in
-                                                    reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                                                    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                                                    culpa qui officia deserunt mollit anim id est laborum.
-                                                </Accordion.Body>
-                                            </Accordion.Item>
+                                            {
+                                                (faqsList.length > 0) && (
+                                                    faqsList.map((data, index) => (
+                                                        <Accordion.Item key={index} eventKey={index}>
+                                                            <Accordion.Header>{data.postMeta.title[0]}</Accordion.Header>
+                                                            <Accordion.Body>
+                                                                <div dangerouslySetInnerHTML={{ __html: data.postMeta.details[0] }}></div>
+                                                            </Accordion.Body>
+                                                        </Accordion.Item>
+                                                    ))
+                                                )
+                                            }
                                         </Accordion>
                                     </>
                                 )

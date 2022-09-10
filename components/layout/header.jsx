@@ -2,11 +2,15 @@ import useTranslation from 'next-translate/useTranslation';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useState } from 'react';
 import { useEffect } from 'react';
+import ApiCalls from '../../utils/apicalls';
 
 export default function Header({ page, subpage, title, description, banner }) {
 
     const { t } = useTranslation('common');
+    const [products, setProducts] = useState([])
+    const [pageloading, setPageloading] = useState(false)
 
     const openToggleMenu = () => {
         if (document.getElementById("navbarSupportedContent").style.display == "none" || document.getElementById("navbarSupportedContent").style.display == "") {
@@ -18,14 +22,32 @@ export default function Header({ page, subpage, title, description, banner }) {
         }
     }
 
-    useEffect(() => {
+    const getProductList = () => {
+        let result = ApiCalls.getProductList()
+        result.then(response => {
+            if (response.data.status == 200) {
+                setProducts(response.data.data)
+                window.localStorage.setItem("product_menu", JSON.stringify(response.data.data))
+            }
+            setPageloading(true)
+        }).catch(e => {
+            setPageloading(false)
+        })
+    }
 
+    useEffect(() => {
+        let menu = window.localStorage.getItem("product_menu")
+        if (menu) {
+            setProducts(JSON.parse(menu))
+        }
+
+        getProductList()
     }, [])
 
     return (
         <>
             <Head>
-                <title>Vmeals -</title>
+                <title>Vmeals - {title}</title>
                 <link href="./images/logo.png" rel="icon" />
                 {/* <!-- required meta --> */}
                 <meta charSet="UTF-8" />
@@ -98,11 +120,22 @@ export default function Header({ page, subpage, title, description, banner }) {
                                             </div>
                                         </li>
                                         <li className="nav-item dropdown">
-                                            <a className={`nav-link dropdown-toggle ${(page == "meal plans") && "active"}`} href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                {t("_header.Meal_Plans")}
-                                            </a>
+                                            <Link href={"/meal-plans"}>
+                                                <a className={`nav-link dropdown-toggle ${(page == "meal plans") && "active"}`} id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    {t("_header.Meal_Plans")}
+                                                </a>
+                                            </Link>
                                             <div className="dropdown-menu box-shadow" aria-labelledby="navbarDropdown">
-                                                <a className="dropdown-item t-14" href="#">Classic Diet</a>
+                                                {
+                                                    (products.length > 0) && (
+                                                        products.map((data, index) => (
+                                                            <Link href={"/" + data.post_name} key={index}>
+                                                                <a key={index} className={`dropdown-item t-14 ${(subpage == data.post_title) && "active"}`}>{data.post_title}</a>
+                                                            </Link>
+                                                        ))
+                                                    )
+                                                }
+
                                             </div>
                                         </li>
                                         <li className="nav-item">

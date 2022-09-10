@@ -382,5 +382,126 @@ a {
   color: #41A53D !important;
 }
 
+.product_card,
+.leftside_mealplan {
+  height: 22vh;
+  position: relative;
+}
+
+.product_card .product_button {
+  position: absolute;
+  z-index: 111;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.w-65 {
+  width: 65%;
+}
+
+.leftside_mealplan .product_button {
+  position: absolute;
+  bottom: 0;
+  z-index: 111;
+  width: 100%;
+  left: 0;
+}
+
 @import "./font.css";
 @import "./slider.css";
+
+
+/* ############ stepper css ############### */
+
+.stepper-wrapper {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding-bottom: 40px;
+  padding-top: 30px;
+}
+
+.stepper-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+
+  @media (max-width: 768px) {
+    font-size: 12px;
+  }
+}
+
+.stepper-item::before {
+  position: absolute;
+  content: "";
+  border-bottom: 2px solid #ccc;
+  width: 100%;
+  top: 20px;
+  left: -50%;
+  z-index: 2;
+}
+
+.stepper-item::after {
+  position: absolute;
+  content: "";
+  border-bottom: 2px solid #ccc;
+  width: 100%;
+  top: 20px;
+  left: 50%;
+  z-index: 2;
+}
+
+.stepper-item .step-counter {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: 40px;
+  border-radius: 15px;
+  background: #fff;
+  margin-bottom: 6px;
+  padding-left: 12px;
+  padding-right: 12px;
+  color: #555 !important;
+}
+
+.stepper-item.active a {
+  font-weight: bold;
+  color: #fff !important;
+}
+
+.stepper-item.active .step-counter {
+  font-weight: bold;
+  color: #fff !important;
+  background-color: #41A53D;
+}
+
+
+.stepper-item.completed .step-counter {
+  background-color: #fff;
+  font-weight: bold;
+}
+
+.stepper-item.completed::after {
+  position: absolute;
+  content: "";
+  border-bottom: 2px solid rgba(202, 248, 128, 0.6);
+  width: 100%;
+  top: 20px;
+  left: 50%;
+  z-index: 3;
+}
+
+.stepper-item:first-child::before {
+  content: none;
+}
+
+.stepper-item:last-child::after {
+  content: none;
+}

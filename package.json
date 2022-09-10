@@ -21,6 +21,7 @@
     "next": "12.2.5",
     "next-translate": "^1.5.0",
     "path": "^0.12.7",
+    "qs": "^6.11.0",
     "react": "18.2.0",
     "react-bootstrap": "^2.5.0",
     "react-bootstrap-accordion": "^1.0.0",

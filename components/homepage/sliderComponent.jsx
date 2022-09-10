@@ -9,34 +9,40 @@ import "swiper/css/navigation";
 // import required modules
 import { Navigation, Autoplay } from "swiper";
 
-export default function SliderComponent({ slideData = [] }) {
+export default function SliderComponent({ slideData = [], page = "" }) {
     const { t } = useTranslation('common');
 
     return (
         <>
-            <Swiper
-                loop={true}
-                centeredSlides={true}
-                autoplay={{
-                    delay: 2500,
-                    disableOnInteraction: false,
-                }}
-                navigation={true} modules={[Navigation, Autoplay]}
-                className="mySwiper">
-                {
-                    slideData.map((data, index) => (
-                        <SwiperSlide key={index} className='vh-100' style={{ 'background': 'url(' + data.image + ')center/cover' }}>
-                            {
-                                (data.description.length > 0) && (
-                                    <div className='slide_description bg-white p-3 border-radius t-14'>
-                                        <p>{data.description}</p>
-                                    </div>
-                                )
-                            }
-                        </SwiperSlide>
-                    ))
-                }
-            </Swiper>
+            {
+                (page == "homepage") && (
+                    <Swiper
+                        loop={true}
+                        centeredSlides={true}
+                        autoplay={{
+                            delay: 2500,
+                            disableOnInteraction: false,
+                        }}
+                        navigation={true} modules={[Navigation, Autoplay]}
+                        className="mySwiper">
+                        {
+                            slideData.map((data, index) => (
+                                <SwiperSlide key={index} className='vh-100' style={{ 'background': 'url(' + data.customImage.guid + ')center/cover' }}>
+                                    {
+                                        // (data.description.length > 0) && (
+                                        <div className='slide_description bg-white p-3 border-radius t-14'>
+                                            <h1 className='text-success bold-800'>{data.postMeta.title[0]}</h1>
+                                            <p dangerouslySetInnerHTML={{__html: data.postMeta.details[0]}}></p>
+                                        </div>
+                                        // )
+                                    }
+                                </SwiperSlide>
+                            ))
+                        }
+                    </Swiper>
+                )
+            }
+
         </>
     );
 }
