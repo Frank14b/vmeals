@@ -10,11 +10,6 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif; */
 }
 
-a {
-  text-decoration: none !important;
-  color: #444 !important;
-}
-
 .text-decoration-none {
   text-decoration: none !important;
 }
@@ -203,6 +198,10 @@ a {
   display: block !important;
 }
 
+a {
+  text-decoration: none !important;
+  color: #444 !important;
+}
 
 .company_firstsection {
   height: 90vh;
