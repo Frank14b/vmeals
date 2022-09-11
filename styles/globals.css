@@ -144,7 +144,7 @@ a {
   background: #41A53D !important;
 }
 
-.btn-success {
+.btn-success, .bg-success {
   background: #41A53D !important;
   border-color: #41A53D !important;
 }
@@ -350,6 +350,14 @@ a {
   float: left;
 }
 
+.cut-text-2 {
+  width: 100%;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
 .cut-text-3 {
   width: 100%;
   overflow: hidden;
@@ -382,6 +390,10 @@ a {
   color: #41A53D !important;
 }
 
+.text-success-hover:hover {
+  color: #41A53D !important;
+}
+
 .product_card,
 .leftside_mealplan {
   height: 22vh;
@@ -408,8 +420,58 @@ a {
   left: 0;
 }
 
+
+/* ################## blog css custom ################## */
+
+.blog_card {
+  height: 58vh;
+  border-radius: 25px;
+}
+
+.blog_card .content_category {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.blog_card .content_img {
+  border-radius: 25px 25px 0 0;
+  width: 100%;
+  height: 300px;
+}
+.blog_card .content_img_div {
+  height: 310px;
+  position: relative;
+}
+
+.blog_card .content_text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
 @import "./font.css";
 @import "./slider.css";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* ############ stepper css ############### */

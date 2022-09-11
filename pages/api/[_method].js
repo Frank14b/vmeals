@@ -38,6 +38,22 @@ export default function handler(req, res) {
         WpApiController.getMealPlansleftside(req, res)
     }
 
+    if(req.query._method == "getAllBlog") {
+        WpApiController.getAllBlog(req, res)
+    }
+
+    if(req.query._method == "getBlogById") {
+        WpApiController.getBlogById(req, res)
+    }
+
+    if(req.query._method == 'getAllCategories') {
+        WpApiController.getAllCategories(req, res)
+    }
+
+    if(req.query._method == "getRecentBlog") {
+        WpApiController.getRecentBlog(req, res)
+    }
+
     if(req.query._method == "reviews") {
         getGoogleReviews()
     }

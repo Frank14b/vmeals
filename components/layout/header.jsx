@@ -113,6 +113,9 @@ export default function Header({ page, subpage, title, description, banner }) {
                                                 <Link href={"/our-partners"}>
                                                     <a className={`dropdown-item t-14 ${(subpage == "partners") && "active"}`}>{t("_header.Our_Partners")}</a>
                                                 </Link>
+                                                <Link href={"/blog"}>
+                                                    <a className={`dropdown-item t-14 ${(subpage == "blog") && "active"}`}>{t("_header.blogs")}</a>
+                                                </Link>
                                                 <Link href={"/faqs"}>
                                                     <a className={`dropdown-item t-14 ${(subpage == "faqs") && "active"}`}>{t("_header.faqs")}</a>
                                                 </Link>

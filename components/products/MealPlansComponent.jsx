@@ -248,8 +248,8 @@ export default function MealPlansComponent() {
             {/* home page third section  */}
             <div className='w-100 homepage_thirdsection pt-3'>
 
-                <div className='col-md-12'>
-                    <div className='row mt-5 px-5'>
+                <div className='col-md-11 col-lg-10 mx-auto px-2'>
+                    <div className='row mt-5'>
                         {
                             (!pageloading) ? (
                                 <>
@@ -280,7 +280,7 @@ export default function MealPlansComponent() {
 
             {/* home page five section  */}
             <div className='w-100 homepage_fivesection pt-5' >
-                <div className='container'>
+                <div className='col-md-11 col-lg-10 mx-auto px-2'>
                     <GoogleReviewComponents></GoogleReviewComponents>
                 </div>
             </div >

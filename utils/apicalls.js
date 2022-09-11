@@ -81,6 +81,44 @@ const getMealPlansleftside = () => {
     return axios(params)
 }
 
+const getAllBlog = () => {
+    let params = {
+        url: AppLink.API_NEXT + "getAllBlog",
+        method: "GET",
+    }
+    return axios(params)
+}
+
+const getBlogById = (id) => {
+    let params = {
+        url: AppLink.API_NEXT + "getBlogById",
+        method: "POST",
+        data: {
+            'id': id
+        },
+        Headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        }
+    }
+    return axios(params)
+}
+
+const getAllCategories = () => {
+    let params = {
+        url: AppLink.API_NEXT + "getAllCategories",
+        method: "GET",
+    }
+    return axios(params)
+}
+
+const getRecentBlog = () => {
+    let params = {
+        url: AppLink.API_NEXT + "getRecentBlog",
+        method: "GET",
+    }
+    return axios(params)
+}
+
 const ApiCalls = {
     "getAllReviews": getAllReviews,
     "getHomePageDatas": getHomePageSlider,
@@ -91,7 +129,11 @@ const ApiCalls = {
     "getOurCompanyFirstSection": getOurCompanyFirstSection,
     'getProductList': getProductList,
     "getMealPlansMeta": getMealPlansMeta,
-    "getMealPlansleftside": getMealPlansleftside
+    "getMealPlansleftside": getMealPlansleftside,
+    "getAllBlog": getAllBlog,
+    "getBlogById": getBlogById,
+    "getAllCategories": getAllCategories,
+    "getRecentBlog": getRecentBlog
 }
 
 export default ApiCalls

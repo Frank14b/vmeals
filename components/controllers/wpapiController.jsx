@@ -226,6 +226,101 @@ const getMealPlansleftside = (req, res) => {
     })
 }
 
+const getAllBlog = (req, res) => {
+    let params = {
+        url: AppLink.API_WP + "blogdatas",
+        method: "POST",
+        data: qs.stringify({
+            post_type: "post"
+        }),
+        headers: {
+            "Authorization": "Basic " + btoa("admin:Dubai12345**"),
+            "Content-Type": "application/x-www-form-urlencoded"
+        }
+    }
+    axios(params).then(response => {
+        if (response.status == 200) {
+            res.status(200).json({ status: 200, data: response.data })
+        } else {
+            res.status(200).json({ status: 400, data: [] })
+        }
+    }).catch(e => {
+        console.log(e)
+        res.status(400).json({ data: [] })
+    })
+}
+
+const getBlogById = (req, res) => {
+    let params = {
+        url: AppLink.API_WP + "blogdatas",
+        method: "POST",
+        data: qs.stringify({
+            id: req.body.id,
+            post_type: "post"
+        }),
+        headers: {
+            "Authorization": "Basic " + btoa("admin:Dubai12345**"),
+            "Content-Type": "application/x-www-form-urlencoded"
+        }
+    }
+    axios(params).then(response => {
+        if (response.status == 200) {
+            res.status(200).json({ status: 200, data: response.data })
+        } else {
+            res.status(200).json({ status: 400, data: [] })
+        }
+    }).catch(e => {
+        console.log(e)
+        res.status(400).json({ data: [] })
+    })
+}
+
+const getAllCategories = (req, res) => {
+    let params = {
+        url: AppLink.API_WP_1 + "wp/v2/categories",
+        method: "GET",
+        headers: {
+            "Authorization": "Basic " + btoa("admin:Dubai12345**"),
+            "Content-Type": "application/x-www-form-urlencoded"
+        }
+    }
+    axios(params).then(response => {
+        if (response.status == 200) {
+            res.status(200).json({ status: 200, data: response.data })
+        } else {
+            res.status(200).json({ status: 400, data: [] })
+        }
+    }).catch(e => {
+        console.log(e)
+        res.status(400).json({ data: [] })
+    })
+}
+
+const getRecentBlog = (req, res) => {
+    let params = {
+        url: AppLink.API_WP + "blogdatas",
+        method: "POST",
+        data: qs.stringify({
+            recent_post: true,
+            post_type: "post"
+        }),
+        headers: {
+            "Authorization": "Basic " + btoa("admin:Dubai12345**"),
+            "Content-Type": "application/x-www-form-urlencoded"
+        }
+    }
+    axios(params).then(response => {
+        if (response.status == 200) {
+            res.status(200).json({ status: 200, data: response.data })
+        } else {
+            res.status(200).json({ status: 400, data: [] })
+        }
+    }).catch(e => {
+        console.log(e)
+        res.status(400).json({ data: [] })
+    })
+}
+
 const WpApiController = {
     "getHomepageSlidersData": getHomepageSlidersData,
     "getHomepageHowItsWork": getHomepageHowItsWork,
@@ -235,7 +330,11 @@ const WpApiController = {
     "OurCompanyFirstSection": OurCompanyFirstSection,
     "getProductList": getProductList,
     "getMealPlansMeta": getMealPlansMeta,
-    "getMealPlansleftside": getMealPlansleftside
+    "getMealPlansleftside": getMealPlansleftside,
+    "getAllBlog": getAllBlog,
+    "getBlogById": getBlogById,
+    "getAllCategories": getAllCategories,
+    "getRecentBlog": getRecentBlog
 }
 
 export default WpApiController

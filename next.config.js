@@ -12,7 +12,7 @@ const nextConfig = {
   },
   images: {
     //enter the domain or subdomain where you have WordPress installed
-    domains: ['workspace.vmeals.ae', 'i0.wp.com', 'vmeals.ae', 'lh3.googleusercontent.com'],
+    domains: ['workspace.vmeals.ae', 'i0.wp.com', 'vmeals.ae', 'lh3.googleusercontent.com', 'www.ardb.com.kh'],
   },
 }
 

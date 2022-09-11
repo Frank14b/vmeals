@@ -128,7 +128,7 @@ export default function HomeComponent() {
                     <h2 className='bold-700'>{t("How its works?")}</h2>
                 </div>
 
-                <div className='container'>
+                <div className='col-md-11 col-lg-10 mx-auto px-2'>
                     <div className='row'>
                         {
                             (slideLoading) ? (
@@ -168,8 +168,8 @@ export default function HomeComponent() {
                     <h2 className='bold-700'>{t("_home.Choose_Us")}</h2>
                 </div>
 
-                <div className='col-md-12'>
-                    <div className='row mt-5 px-5'>
+                <div className='col-md-11 col-lg-10 mx-auto px-2'>
+                    <div className='row mt-5'>
                         {
                             (slideLoading) ? (
                                 <>
@@ -200,14 +200,14 @@ export default function HomeComponent() {
 
             {/* home page four section  */}
             <div className='w-100 homepage_foursection'>
-                <div className='container'>
-                    <div className='row mt-5'>
-                        <div className='col-md-6 mb-4 image_'>
-                            <Image height={450} width={600} alt='Deit' src="https://i0.wp.com/workspace.vmeals.ae/wp-content/uploads/2019/06/Photo-07-11-2021-8-54-25-AM.jpg?ssl=1" className='w-100 border-radius' />
+                <div className='col-md-11 col-lg-10 mx-auto px-2'>
+                    <div className='row mt-5 px-2'>
+                        <div className='col-md-6 mb-4 image_' style={{height: "550px"}}>
+                            <Image layout='fill' alt='Deit' objectFit='cover' src="https://i0.wp.com/workspace.vmeals.ae/wp-content/uploads/2019/06/Photo-07-11-2021-8-54-25-AM.jpg?ssl=1" className='w-100 border-radius' />
                         </div>
 
                         <div className='col-md-6'>
-                            <h2 className='bold-700'>
+                            <h2 className='bold-700 mt-4'>
                                 Require assistance in starting <br /> your fitness journey?
                             </h2>
                             <p className='bold-700 t-20 mt-3'>
@@ -233,7 +233,7 @@ export default function HomeComponent() {
 
             {/* home page five section  */}
             <div className='w-100 homepage_fivesection pt-5'>
-                <div className='container'>
+                <div className='col-md-11 col-lg-10 mx-auto px-2'>
                     <GoogleReviewComponents></GoogleReviewComponents>
                 </div>
             </div>

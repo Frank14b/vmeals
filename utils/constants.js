@@ -10,10 +10,9 @@ const arrayProductColor = {
 }
 
 const Constants = {
-    "API_NEXT" : "prod",
+    "API_NEXT" : "dev",
     "API_MODE" : "prod",
-    "APP_MODE" : "prod",
-    
+    "APP_MODE" : "dev",
     "arrayProductColor": arrayProductColor,
     "whtasapp_link": "https://wa.me/+971562922081"
 }
