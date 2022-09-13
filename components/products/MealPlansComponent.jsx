@@ -134,7 +134,7 @@ export default function MealPlansComponent() {
                                                         {data.postMeta.title[0]}
                                                     </h4>
 
-                                                    <p className='text-right t-14' dangerouslySetInnerHTML={{ __html: data.postMeta.details[0] }}></p>
+                                                    <p className='text-right' dangerouslySetInnerHTML={{ __html: data.postMeta.details[0] }}></p>
                                                 </div>
 
                                                 <div className='product_button p-3'>
@@ -166,7 +166,7 @@ export default function MealPlansComponent() {
                                                         {data.postMeta.title[0]}
                                                     </h4>
 
-                                                    <p className='text-left t-14' dangerouslySetInnerHTML={{ __html: data.postMeta.details[0] }}></p>
+                                                    <p className='text-left' dangerouslySetInnerHTML={{ __html: data.postMeta.details[0] }}></p>
                                                 </div>
 
                                                 <div className='product_button p-3'>
@@ -203,7 +203,7 @@ export default function MealPlansComponent() {
                                                                                 {data.postMeta.title[0]}
                                                                             </h4>
 
-                                                                            <p className='text-left t-14' dangerouslySetInnerHTML={{ __html: data.postMeta.details[0] }}></p>
+                                                                            <p className='text-left' dangerouslySetInnerHTML={{ __html: data.postMeta.details[0] }}></p>
                                                                         </div>
 
                                                                         <div className='product_button p-3'>
@@ -228,6 +228,7 @@ export default function MealPlansComponent() {
                                             <div className='product_title p-3'>
                                                 <h4 className='bold-800' style={{ color: "rgba(" + Constants.arrayProductColor[index].cl + ")" }}>{data.post_title}</h4>
                                             </div>
+                                            <span className='product_image'><Image src={data.customImage[0]} width={150} height={150} objectFit={"cover"} className="circle box-shadow" /></span>
                                             <div className='product_button p-3'>
                                                 <Link href={"/" + data.post_name} style={{ background: "rgba(" + Constants.arrayProductColor[index].cl + ")" }}>
                                                     <a className='btn btn-md px-4 bold-700 text-white' style={{ background: "rgba(" + Constants.arrayProductColor[index].cl + ")" }}>View Plan</a>
