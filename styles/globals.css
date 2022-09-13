@@ -144,7 +144,8 @@ a {
   background: #41A53D !important;
 }
 
-.btn-success, .bg-success {
+.btn-success, 
+.bg-success {
   background: #41A53D !important;
   border-color: #41A53D !important;
 }
@@ -570,4 +571,34 @@ a {
 
 .stepper-item:last-child::after {
   content: none;
+}
+
+.cursor-pointer {
+  cursor: pointer !important;
+}
+
+.h-100 {
+  height: 80vh !important;
+}
+
+.my-auto {
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  transform: translate(-50%, 0);
+}
+
+._blogDetails h1,
+._blogDetails h2,
+._blogDetails h3,
+._blogDetails h4,
+._blogDetails h5 {
+  font-weight: 600;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+._blogDetails a {
+  color: #41A53D !important;
 }

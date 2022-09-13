@@ -23,6 +23,7 @@ export default function BlogComponent() {
     const [pageloading, setPageloading] = useState(true)
     const [allcategories, setAllcategories] = useState([])
     const [chooseUs, setChooseUs] = useState([])
+    const [loading, setLoading] = useState(true)
     const [metaData, setMetaData] = useState({
         title: "Vmeals",
         description: "Vmeals",
@@ -35,6 +36,7 @@ export default function BlogComponent() {
             if (response.data.status == 200) {
                 setBlogs(response.data.data)
                 setPageloading(false)
+                setLoading(false)
             } else {
                 setPageloading(true)
             }
@@ -68,6 +70,7 @@ export default function BlogComponent() {
     }
 
     useEffect(() => {
+        setLoading(true)
         getAllBlog()
         getAllCategories()
         getRecentBlog()
@@ -89,9 +92,22 @@ export default function BlogComponent() {
                         </div>
                     </div>
 
-                    <div className='row'>
+                    <div className='row pb-5'>
                         <div className='col-md-7 col-lg-9'>
                             <div className='row'>
+
+                                {
+                                    (loading) && (
+                                        <div className='h-100 position-relative'>
+                                            <div className='col-md-8 mx-auto my-auto'>
+                                                <h4 className='text-center bold-800'>Loading Data...</h4>
+                                                <Skeleton baseColor='#E1F0E0' count={5} />
+                                            </div>
+                                        </div>
+                                    )
+                                }
+
+
                                 {
                                     (blogs.length > 0) ? (
                                         blogs.map((data, index) => (
@@ -135,12 +151,12 @@ export default function BlogComponent() {
                                     {
                                         (allcategories.length > 0) && (
                                             allcategories.map((data, index) => (
-                                                <>
+                                                <p key={index}>
                                                     <Link href={data.slug} key={index}>
                                                         <a className='bold-700 text-success-hover' key={index}><FaAngleRight className='text-success'></FaAngleRight> {data.name} ({data.count})</a>
                                                     </Link>
                                                     <hr className='hr' />
-                                                </>
+                                                </p>
                                             ))
                                         )
                                     }
@@ -155,7 +171,7 @@ export default function BlogComponent() {
                                     {
                                         (recentblogs.length > 0) && (
                                             recentblogs.map((data, index) => (
-                                                <>
+                                                <div key={index}>
                                                     <Link href={data.post.post_name} key={index}>
                                                         <div className='row cursor-pointer'>
                                                             <div className='col-md-4'>
@@ -168,7 +184,7 @@ export default function BlogComponent() {
                                                         </div>
                                                     </Link>
                                                     <hr className='hr' />
-                                                </>
+                                                </div>
                                             ))
                                         )
                                     }

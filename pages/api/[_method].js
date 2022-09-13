@@ -54,6 +54,10 @@ export default function handler(req, res) {
         WpApiController.getRecentBlog(req, res)
     }
 
+    if(req.query._method == "checkCustomData") {
+        WpApiController.checkCustomData(req, res)
+    }
+
     if(req.query._method == "reviews") {
         getGoogleReviews()
     }

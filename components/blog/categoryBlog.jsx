@@ -8,11 +8,9 @@ import 'react-loading-skeleton/dist/skeleton.css'
 import Link from 'next/link';
 import Image from 'next/image';
 import { FaAngleDoubleRight, FaAngleRight } from "react-icons/fa"
-import { height } from '@mui/system';
 
 
-export default function BlogDetailsComponent({ data }) {
-
+export default function CategoryBlogComponent({data}) {
     const { t } = useTranslation('common');
     const axios = require('axios');
 
@@ -53,31 +51,52 @@ export default function BlogDetailsComponent({ data }) {
     return (
         <>
 
+            
+
             {/* home page five section  */}
             <div className='w-100 py-5 my-5' >
-
-                <div className='col-md-12 text-center mt-5'>
-
-                    <p><span className='bg-success badge p-2 t-15 border-radius bold-700 px-3'>{data.category[0].name}</span></p>
-                    <h1 className='bold-800'>{data.data.post_title}</h1>
-
-                </div>
-
                 <div className='col-md-11 col-lg-10 mx-auto mt-5 px-2'>
+
+                    <div className='row'>
+                        <div className='col-md-12 text-center'>
+                            <h1 className='text-success bold-800'>Blog</h1>
+                            <p><Link href={"/"}><a className='text-success bold-700'>Home</a></Link> / Blog</p>
+                        </div>
+                    </div>
 
                     <div className='row'>
                         <div className='col-md-7 col-lg-9'>
                             <div className='row'>
+                                {
+                                    (blogs.length > 0) ? (
+                                        blogs.map((data, index) => (
+                                            <div className='col-md-12 col-lg-6 mb-4' key={index}>
+                                                <div className='blog_card w-100 position-relative bg-success-light p-0'>
+                                                    <div className="content_img_div">
+                                                        <Image className='content_img' objectFit='cover' src={data.customImage} layout='fill' />
+                                                    </div>
 
-                                <div className='col-md-10 mx-auto'>
-                                    <div className='col-md-12 position-relative' style={{ height: "500px" }}>
-                                        <Image src={data.customImage} layout={"fill"} objectFit={"cover"} className="border-radius" />
-                                    </div>
+                                                    <span className='content_category box-shadow bg-success text-white bold-700 px-4 py-2 border-radius'>
+                                                        <Link href={(data.category[0]) ? "/" + data.category[0].category_nicename : "/"}>
+                                                            <a className='text-white'>{(data.category[0]) ? data.category[0].name : ""}</a>
+                                                        </Link>
+                                                    </span>
 
-                                    <div className='col-md-12 text-justify _blogDetails position-relative mt-5'>
-                                        <div dangerouslySetInnerHTML={{__html: data.data.post_content}}></div>
-                                    </div>
-                                </div>
+                                                    <div className='content_text pb-4 px-3'>
+                                                        <h4 className='bold-800 text-center cut-text-2'>
+                                                            <Link href={(data.data.post_name) ? data.data.post_name : "/"}>
+                                                                <a className='text-success-hover'>{data.postMeta._yoast_wpseo_title[0]}</a>
+                                                            </Link>
+                                                        </h4>
+                                                        <p className='text-center cut-text-3'>{data.postMeta._yoast_wpseo_metadesc[0]}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        ))
+                                    ) : (
+                                        <></>
+                                    )
+                                }
 
                             </div>
                         </div>
@@ -91,12 +110,12 @@ export default function BlogDetailsComponent({ data }) {
                                     {
                                         (allcategories.length > 0) && (
                                             allcategories.map((data, index) => (
-                                                <div key={index}>
+                                                <p key={index}>
                                                     <Link href={data.slug} key={index}>
                                                         <a className='bold-700 text-success-hover' key={index}><FaAngleRight className='text-success'></FaAngleRight> {data.name} ({data.count})</a>
                                                     </Link>
                                                     <hr className='hr' />
-                                                </div>
+                                                </p>
                                             ))
                                         )
                                     }
@@ -114,10 +133,10 @@ export default function BlogDetailsComponent({ data }) {
                                                 <div key={index}>
                                                     <Link href={data.post.post_name} key={index}>
                                                         <div className='row cursor-pointer' key={index}>
-                                                            <div className='col-sm-4'>
+                                                            <div className='col-md-4'>
                                                                 <Image width={100} height={100} className='content_img border-radius' objectFit='cover' src={(data.customImage) ? data.customImage : "https://www.ardb.com.kh/wp-content/themes/RDB/images/no-image.jpg"} />
                                                             </div>
-                                                            <div className='col-sm-8'>
+                                                            <div className='col-md-8'>
                                                                 <p><a className='text-success bold-700'>{(data.category[0]) ? data.category[0].name : ""}</a></p>
                                                                 <h5><a className='bold-700 text-success-hover' key={index}>{data.post.post_title}</a></h5>
                                                             </div>
@@ -136,6 +155,7 @@ export default function BlogDetailsComponent({ data }) {
                 </div>
             </div >
             {/* home page five section  */}
+
 
         </>
     );
