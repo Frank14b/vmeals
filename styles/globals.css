@@ -122,13 +122,14 @@ a {
 }
 
 .dropdown-item.active {
-  background-color: #41A53D;
+  background-color: #41A53D !important;
+  background: #41A53D !important;
   color: #fff;
 }
 
 .navbar .nav-link:hover,
 .footer .nav-link:hover {
-  color: #41A53D;
+  color: #41A53D !important;
 }
 
 .navbar .nav-item {
@@ -142,16 +143,19 @@ a {
 
 .btn-outline-success:hover {
   background: #41A53D !important;
+  background-color: #41A53D !important;
 }
 
 .btn-success, 
 .bg-success {
   background: #41A53D !important;
   border-color: #41A53D !important;
+  background-color: #41A53D !important;
+  color: #fff !important;
 }
 
 .border-top-3 {
-  border-top: 2px solid #41A53D;
+  border-top: 2px solid #41A53D !important;
 }
 
 .border-radius {
@@ -188,11 +192,11 @@ a {
 }
 
 .border-1 {
-  border: 1px solid #41A53D;
+  border: 1px solid #41A53D !important;
 }
 
 .border-1-5 {
-  border: 1.5px solid #41A53D;
+  border: 1.5px solid #41A53D !important;
 }
 
 .dropdown:hover .dropdown-menu {
@@ -234,7 +238,8 @@ a {
 .company_seocndsection .upper_div {
   min-height: 150px;
   height: 15vh;
-  background: #41A53D;
+  background: #41A53D !important;
+  background-color: #41A53D !important;
   border-radius: 12px 12px 0 0;
 }
 
@@ -546,7 +551,8 @@ a {
 .stepper-item.active .step-counter {
   font-weight: bold;
   color: #fff !important;
-  background-color: #41A53D;
+  background-color: #41A53D !important;
+  background: #41A53D !important;
 }
 
 
@@ -579,14 +585,22 @@ a {
 
 .h-100 {
   height: 80vh !important;
+  min-height: 700px;
+}
+
+.dropdown-item {
+  border-radius: 12px !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  color: #444 !important;
 }
 
 .my-auto {
-  left: 50%;
-  position: absolute;
-  top: 50%;
-  transform: translate(0, -50%);
-  transform: translate(-50%, 0);
+  left: 50% !important;
+  position: absolute !important;
+  top: 50% !important;
+  transform: translate(0, -50%) !important;
+  transform: translate(-50%, 0) !important;
 }
 
 ._blogDetails h1,
@@ -601,4 +615,14 @@ a {
 
 ._blogDetails a {
   color: #41A53D !important;
+}
+
+.dropdown-item.active, .dropdown-item:active {
+  color: #fff !important;
+  border-radius: 12px !important;
+}
+
+.dropdown-menu {
+  border: 0px !important;
+  padding: 4px !important;
 }

@@ -9,7 +9,6 @@ import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 import BlogDetailsComponent from '../components/blog/blogDetails'
 
-
 export default function CustomPage() {
 
   const [customPage, setCustomPage] = useState(null)
