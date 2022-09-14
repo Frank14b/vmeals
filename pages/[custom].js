@@ -8,6 +8,7 @@ import Footer from '../components/layout/footer'
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 import BlogDetailsComponent from '../components/blog/blogDetails'
+import ProductDetailsComponent from '../components/products/productDetails'
 
 export default function CustomPage() {
 
@@ -17,6 +18,7 @@ export default function CustomPage() {
   const [seobanner, setSeobanner] = useState("")
   const [seodetails, setSeodetails] = useState("")
   const [seotitle, setSeotitle] = useState("")
+  const [productTemp, setProductTemp] = useState([])
   const qs = require('qs');
   const router = useRouter()
   const ID = router.query.custom
@@ -33,14 +35,20 @@ export default function CustomPage() {
 
           if (response.data.data.data) {
 
-            if(response.data.data.type == "singlePost") {
+            if (response.data.data.type == "singlePost") {
               setSeobanner(response.data.data.data.customImage)
               setSeotitle(response.data.data.data.postMeta._yoast_wpseo_title[0])
               setSeodetails(response.data.data.data.postMeta._yoast_wpseo_metadesc[0])
             }
 
-            setCustomData(response.data.data.data)
-            setLoading(false)
+            if (response.data.data.type != "singleProduct") {
+              setCustomData(response.data.data.data)
+              setLoading(false)
+
+            } else {
+              getProductData(response.data.data.data)
+            }
+
           } else {
             setCustomData([])
           }
@@ -50,6 +58,23 @@ export default function CustomPage() {
     }).catch(e => {
     })
   }
+
+  const getProductData = (data) => {
+    setProductTemp(data)
+    let result = ApiCalls.getProductData(qs.stringify({ id: data.data.ID }))
+    result.then(response => {
+      if (response.data.status == 200) {
+
+        setSeobanner(response.data.data.yoast_head_json.og_image[0].url)
+        setSeotitle(response.data.data.yoast_head_json.title)
+        setSeodetails(response.data.data.yoast_head_json.og_description)
+
+        setCustomData(response.data.data)
+        setLoading(false)
+      }
+    })
+  }
+
 
   useEffect(() => {
     setLoading(true)
@@ -61,7 +86,7 @@ export default function CustomPage() {
   return (
     <div className="">
 
-      <Header page={"about"} subpage="blog" title={seotitle} banner={seobanner} description={seodetails}></Header>
+      <Header page={(customPage == "singleProduct") ? "meal plans" : "about"} subpage={(customPage == "singleProduct") ? customData.name : "blog"} title={seotitle} banner={seobanner} description={seodetails}></Header>
 
       {
         (loading) && (
@@ -87,6 +112,13 @@ export default function CustomPage() {
           <BlogDetailsComponent data={customData}></BlogDetailsComponent>
         )
       }
+
+      {
+        (customPage == "singleProduct") && (
+          <ProductDetailsComponent data={customData} productTemp={productTemp}></ProductDetailsComponent>
+        )
+      }
+
 
       <Footer></Footer>
 

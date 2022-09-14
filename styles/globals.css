@@ -651,3 +651,22 @@ a {
 .circle {
   border-radius: 50% !important;
 }
+
+.Prod_variations .prod-var {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.Prod_variations .variation-option {
+  margin-bottom: 0px;
+  margin-top: 10px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.Prod_variations .variation-option.active {
+  background: #41A53D;
+  color: #fff;
+}

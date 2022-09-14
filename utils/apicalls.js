@@ -131,6 +131,18 @@ const checkCustomData = (data) => {
     return axios(params)
 }
 
+const getProductData = (data) => {
+    let params = {
+        url: AppLink.API_NEXT + "getProductData",
+        method: "POST",
+        data: data,
+        Headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        }
+    }
+    return axios(params)
+}
+
 const ApiCalls = {
     "getAllReviews": getAllReviews,
     "getHomePageDatas": getHomePageSlider,
@@ -146,7 +158,8 @@ const ApiCalls = {
     "getBlogById": getBlogById,
     "getAllCategories": getAllCategories,
     "getRecentBlog": getRecentBlog,
-    "checkCustomData": checkCustomData
+    "checkCustomData": checkCustomData,
+    "getProductData": getProductData
 }
 
 export default ApiCalls

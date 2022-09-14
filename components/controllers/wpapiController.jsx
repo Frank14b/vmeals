@@ -343,6 +343,28 @@ const checkCustomData = (req, res) => {
     })
 }
 
+const getProductData = (req, res) => {
+    let params = {
+        url: AppLink.API_WP_1 + "wc/v1/products/"+req.body.id,
+        method: "POST",
+        data: qs.stringify(req.body),
+        headers: {
+            "Authorization": "Basic " + btoa("admin:Dubai12345**"),
+            "Content-Type": "application/x-www-form-urlencoded"
+        }
+    }
+    axios(params).then(response => {
+        if (response.status == 200) {
+            res.status(200).json({ status: 200, data: response.data })
+        } else {
+            res.status(200).json({ status: 400, data: [] })
+        }
+    }).catch(e => {
+        console.log(e)
+        res.status(400).json({ data: [] })
+    })
+}
+
 
 const WpApiController = {
     "getHomepageSlidersData": getHomepageSlidersData,
@@ -358,7 +380,8 @@ const WpApiController = {
     "getBlogById": getBlogById,
     "getAllCategories": getAllCategories,
     "getRecentBlog": getRecentBlog,
-    "checkCustomData": checkCustomData
+    "checkCustomData": checkCustomData,
+    "getProductData": getProductData
 }
 
 export default WpApiController

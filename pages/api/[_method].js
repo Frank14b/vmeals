@@ -58,6 +58,10 @@ export default function handler(req, res) {
         WpApiController.checkCustomData(req, res)
     }
 
+    if(req.query._method == "getProductData") {
+        WpApiController.getProductData(req, res)
+    }
+
     if(req.query._method == "reviews") {
         getGoogleReviews()
     }
