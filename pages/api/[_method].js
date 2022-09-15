@@ -10,6 +10,10 @@ export default function handler(req, res) {
         WpApiController.getHomepageChooseUs(req, res)
     }
 
+    if(req.query._method == "getMealPlansInDubai") {
+        WpApiController.getMealPlansInDubai(req, res)
+    }
+
     if(req.query._method == "getHomepageHowItsWork") {
         WpApiController.getHomepageHowItsWork(req, res)
     }

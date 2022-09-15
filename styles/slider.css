@@ -55,6 +55,7 @@
     top: 30%;
     transform: translate(0, -50%);
     width: 30%;
+    border-radius: 35px !important;
 }
 
 @media screen and (max-width: 992px) {

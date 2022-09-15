@@ -79,6 +79,31 @@ const getHomepageChooseUs = (req, res) => { // get homepage  how its work
     })
 }
 
+const getMealPlansInDubai = (req, res) => {
+    let params = {
+        url: AppLink.API_WP + "homedatas",
+        method: "POST",
+        data: qs.stringify({
+            post_title: "HomePage_MealPlansInDubai",
+            post_type: "sections"
+        }),
+        headers: {
+            "Authorization": "Basic " + btoa("admin:Dubai12345**"),
+            "Content-Type": "application/x-www-form-urlencoded"
+        }
+    }
+    axios(params).then(response => {
+        if (response.status == 200) {
+            res.status(200).json({ status: 200, data: response.data })
+        } else {
+            res.status(200).json({ status: 400, data: [] })
+        }
+    }).catch(e => {
+        console.log(e)
+        res.status(400).json({ data: [] })
+    })
+}
+
 const getFaqsLeftSideData = (req, res) => {
     let params = {
         url: AppLink.API_WP + "homedatas",
@@ -381,7 +406,8 @@ const WpApiController = {
     "getAllCategories": getAllCategories,
     "getRecentBlog": getRecentBlog,
     "checkCustomData": checkCustomData,
-    "getProductData": getProductData
+    "getProductData": getProductData,
+    "getMealPlansInDubai": getMealPlansInDubai
 }
 
 export default WpApiController

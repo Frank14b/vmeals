@@ -19,6 +19,7 @@ export default function HomeComponent() {
     const [slideData, setSlideData] = useState([])
     const [howItsWork, setHowItsWork] = useState([])
     const [chooseUs, setChooseUs] = useState([])
+    const [mealPlansInDubai, setMealPlansInDubai] = useState([])
 
     const chooseUsData = [
         {
@@ -45,6 +46,7 @@ export default function HomeComponent() {
     ]
 
     useEffect(() => {
+        getMealPlansInDubai()
         getHomeSlider()
         getWhyChooseUs()
         getHowItsWork()
@@ -54,7 +56,7 @@ export default function HomeComponent() {
     const getHomeSlider = () => {
         let result = ApiCalls.getHomePageDatas()
         result.then(response => {
-            if(response.data.status == 200) {
+            if (response.data.status == 200) {
                 setSlideData(response.data.data)
                 setSlideLoading1(false)
             }
@@ -67,7 +69,7 @@ export default function HomeComponent() {
     const getHowItsWork = () => {
         let result = ApiCalls.getHomePageHowItsWork()
         result.then(response => {
-            if(response.data.status == 200) {
+            if (response.data.status == 200) {
                 setHowItsWork(response.data.data)
                 setSlideLoading(false)
             }
@@ -80,8 +82,21 @@ export default function HomeComponent() {
     const getWhyChooseUs = () => {
         let result = ApiCalls.getHomePageChooseUs()
         result.then(response => {
-            if(response.data.status == 200) {
+            if (response.data.status == 200) {
                 setChooseUs(response.data.data)
+                setSlideLoading(false)
+            }
+            setSlideLoading(false)
+        }).catch(e => {
+            setSlideLoading(false)
+        })
+    }
+
+    const getMealPlansInDubai = () => {
+        let result = ApiCalls.getMealPlansInDubai()
+        result.then(response => {
+            if (response.data.status == 200) {
+                setMealPlansInDubai(response.data.data)
                 setSlideLoading(false)
             }
             setSlideLoading(false)
@@ -121,8 +136,53 @@ export default function HomeComponent() {
             </div>
             {/* home page first section  */}
 
+
+            {/* home page four section  */}
+            <div className='w-100 homepageSecondsection bg-light pb-4'>
+
+                <div className='col-md-12 text-center pt-5 mt-3'>
+                    <h2 className='bold-700'>{t("_home.MealPlansInDubai")}</h2>
+
+                    <h4 className='bold-700 text-success mt-4'>
+                        {
+                            mealPlansInDubai.map((data, index) => (
+                                data.postMeta.title[0]
+                            ))
+                        }
+                    </h4>
+                </div>
+
+                <div className='col-md-11 col-lg-10 mx-auto px-2'>
+                    <div className='row mt-5 px-2'>
+
+                        <div className='col-md-6'>
+                            <div className='bold-600 col-md-10 mx-auto t-20 mt-3 text-right mb-5'>
+                                {
+                                    mealPlansInDubai.map((data, index) => (
+                                        <div className='t-16' key={index} dangerouslySetInnerHTML={{ __html: data.postMeta.details[0] }}></div>
+                                    ))
+                                }
+                            </div>
+                        </div>
+
+                        <div className='col-md-6 mb-4 image_'>
+                            <div className='col-md-11 mx-auto position-relative' style={{ height: "600px" }}>
+                                {
+                                    mealPlansInDubai.map((data, index) => (
+                                        <Image key={index} layout='fill' alt='Deit' objectFit='cover' src={data.customImage.guid} className='border-radius' />
+                                    ))
+                                }
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            {/* home page four section  */}
+
+
             {/* home page second section  */}
-            <div className='w-100 homepage_secondsection py-4'>
+            <div className='w-100 homepage_secondsection py-4 pb-5'>
 
                 <div className='col-md-12 text-center py-5'>
                     <h2 className='bold-700'>{t("How its works?")}</h2>
@@ -148,7 +208,7 @@ export default function HomeComponent() {
                                             <div className='number bold-700'><a href='#'>{(index + 1)}.</a></div>
                                             <div className='text-left'>
                                                 <h4 className='bold-700 t-22 mt-5 text-success'>{data.postMeta.title[0]}</h4>
-                                                <div dangerouslySetInnerHTML={{__html: data.postMeta.details[0]}}></div>
+                                                <div dangerouslySetInnerHTML={{ __html: data.postMeta.details[0] }}></div>
                                             </div>
                                         </div>
                                     </div>
@@ -185,7 +245,7 @@ export default function HomeComponent() {
                                             <span className='bg-white border-1-5 image_'><Image alt='plans' src={data.customImage.guid} className="p-3" layout={'fill'} /></span>
                                             <div className='col-md-12 mt-5 text-center'>
                                                 <h4 className='text-success bold-700'>{data.postMeta.title[0]}</h4>
-                                                <p className='text-left' dangerouslySetInnerHTML={{__html: data.postMeta.details[0]}}></p>
+                                                <p className='text-left' dangerouslySetInnerHTML={{ __html: data.postMeta.details[0] }}></p>
                                             </div>
                                         </div>
                                     </div>
@@ -202,7 +262,7 @@ export default function HomeComponent() {
             <div className='w-100 homepage_foursection'>
                 <div className='col-md-11 col-lg-10 mx-auto px-2'>
                     <div className='row mt-5 px-2'>
-                        <div className='col-md-6 mb-4 image_' style={{height: "550px"}}>
+                        <div className='col-md-6 mb-4 image_' style={{ height: "550px" }}>
                             <Image layout='fill' alt='Deit' objectFit='cover' src="https://i0.wp.com/workspace.vmeals.ae/wp-content/uploads/2019/06/Photo-07-11-2021-8-54-25-AM.jpg?ssl=1" className='w-100 border-radius' />
                         </div>
 

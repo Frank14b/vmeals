@@ -33,6 +33,14 @@ const getHomePageHowItsWork = () => {
     return axios(params)
 }
 
+const getMealPlansInDubai = () => {
+    let params = {
+        url: AppLink.API_NEXT + "getMealPlansInDubai",
+        method: "GET",
+    }
+    return axios(params)
+}
+
 const getFaqsLeftSideData = () => {
     let params = {
         url: AppLink.API_NEXT + "getFaqsLeftSideData",
@@ -159,7 +167,8 @@ const ApiCalls = {
     "getAllCategories": getAllCategories,
     "getRecentBlog": getRecentBlog,
     "checkCustomData": checkCustomData,
-    "getProductData": getProductData
+    "getProductData": getProductData,
+    "getMealPlansInDubai": getMealPlansInDubai
 }
 
 export default ApiCalls
