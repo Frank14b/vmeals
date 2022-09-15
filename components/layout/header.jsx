@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import { FaShoppingCart, FaWhatsapp } from 'react-icons/fa';
 import ApiCalls from '../../utils/apicalls';
 
 export default function Header({ page, subpage, title, description, banner }) {
@@ -175,6 +176,16 @@ export default function Header({ page, subpage, title, description, banner }) {
                         </div>
                     </nav>
                 </div>
+
+
+                <a className='fixedRightIcon'>
+                    <FaWhatsapp className='text-white'></FaWhatsapp>
+                </a>
+
+                <a className='fixedRightIcon fixedRightIcon_2'>
+                    <FaShoppingCart className='text-white'></FaShoppingCart>
+                </a>
+                
             </div>
         </>
     );

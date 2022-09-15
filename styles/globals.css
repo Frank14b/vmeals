@@ -674,3 +674,23 @@ a {
 .homepageSecondsection {
   margin-top: -20px;
 }
+
+.fixedRightIcon {
+  position: fixed;
+  right: 15px;
+  z-index: 1111;
+  background: #41A53D;
+  padding: 12px;
+  padding-top: 0px;
+  padding-bottom: 5px;
+  border-radius: 20px;
+  color: #fff;
+  font-size: 32px;
+  top: 25%;
+  transform: translate(0, -50%);
+  cursor: pointer;
+}
+
+.fixedRightIcon_2 {
+  top: 35%;
+}
