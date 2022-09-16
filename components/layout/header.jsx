@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { FaShoppingCart, FaWhatsapp } from 'react-icons/fa';
 import ApiCalls from '../../utils/apicalls';
+import Constants from '../../utils/constants';
 
 export default function Header({ page, subpage, title, description, banner }) {
 
@@ -114,9 +115,6 @@ export default function Header({ page, subpage, title, description, banner }) {
                                                 <Link href={"/our-partners"}>
                                                     <a className={`dropdown-item t-14 ${(subpage == "partners") && "active"}`}>{t("_header.Our_Partners")}</a>
                                                 </Link>
-                                                <Link href={"/blog"}>
-                                                    <a className={`dropdown-item t-14 ${(subpage == "blog") && "active"}`}>{t("_header.blogs")}</a>
-                                                </Link>
                                                 <Link href={"/faqs"}>
                                                     <a className={`dropdown-item t-14 ${(subpage == "faqs") && "active"}`}>{t("_header.faqs")}</a>
                                                 </Link>
@@ -154,13 +152,17 @@ export default function Header({ page, subpage, title, description, banner }) {
                                 <div className="collapse navbar-collapse" id="navbarSupportedContent2">
                                     <ul className="navbar-nav mx-auto w-100">
                                         <li className="nav-item w-100">
+
                                             <Link href={"/meal-plans"}>
-                                                <a className="nav-link pull-right"><button className="btn btn-success btn-sm login_btn">{t("_header.Get_Started")}</button></a>
+                                                <a className="nav-link pull-right"><button className="btn btn-success box-shadow btn-sm login_btn">{t("_header.Get_Started")}</button></a>
                                             </Link>
-                                            <Link href={"/login"}>
+                                            {/* <Link href={"/login"}>
                                                 <a className="nav-link pull-right"><button className="btn btn-outline-success mx-2 btn-sm login_btn">{t("_header.Login")}</button></a>
-                                            </Link>
+                                            </Link> */}
                                             <span className='pull-right d-flex'>
+                                                <Link href={"/blog"}>
+                                                    <a className={`nav-link ${(page == "blog") && "active"}`}>{t("_header.blogs")}</a>
+                                                </Link>
                                                 <Link href={"/"} locale="en">
                                                     <a className="nav-link" href="#">{t("_header.English")}</a>
                                                 </Link>
@@ -178,14 +180,14 @@ export default function Header({ page, subpage, title, description, banner }) {
                 </div>
 
 
-                <a className='fixedRightIcon'>
+                <a href={Constants.whtasapp_link} target={"_blank"} className='fixedRightIcon box-shadow'>
                     <FaWhatsapp className='text-white'></FaWhatsapp>
                 </a>
 
-                <a className='fixedRightIcon fixedRightIcon_2'>
+                <a href={""} target={"_blank"} className='fixedRightIcon fixedRightIcon_2 box-shadow'>
                     <FaShoppingCart className='text-white'></FaShoppingCart>
                 </a>
-                
+
             </div>
         </>
     );

@@ -86,7 +86,7 @@ export default function CustomPage() {
   return (
     <div className="">
 
-      <Header page={(customPage == "singleProduct") ? "meal plans" : "about"} subpage={(customPage == "singleProduct") ? customData.name : "blog"} title={seotitle} banner={seobanner} description={seodetails}></Header>
+      <Header page={(customPage == "singleProduct") ? "meal plans" : "blog"} subpage={(customPage == "singleProduct") ? customData.name : ""} title={seotitle} banner={seobanner} description={seodetails}></Header>
 
       {
         (loading) && (

@@ -79,7 +79,7 @@ export default function BlogComponent() {
     return (
         <>
 
-            <Header page={"about"} subpage="blog"></Header>
+            <Header page={"blog"} subpage=""></Header>
 
             {/* home page five section  */}
             <div className='w-100 pt-5 mt-5' >
