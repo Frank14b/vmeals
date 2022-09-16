@@ -180,11 +180,11 @@ export default function Header({ page, subpage, title, description, banner }) {
                 </div>
 
 
-                <a href={Constants.whtasapp_link} target={"_blank"} className='fixedRightIcon box-shadow'>
+                <a href={Constants.whtasapp_link} rel="noreferrer" target={"_blank"} className='fixedRightIcon box-shadow'>
                     <FaWhatsapp className='text-white'></FaWhatsapp>
                 </a>
 
-                <a href={""} target={"_blank"} className='fixedRightIcon fixedRightIcon_2 box-shadow'>
+                <a href={""} rel="noreferrer" target={"_blank"} className='fixedRightIcon fixedRightIcon_2 box-shadow'>
                     <FaShoppingCart className='text-white'></FaShoppingCart>
                 </a>
 
