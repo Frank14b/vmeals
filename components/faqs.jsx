@@ -49,7 +49,7 @@ export default function FaqsComponent() {
             <Header page={"about"} subpage="faqs"></Header>
 
             <div className='w-100'>
-                <div className='container mt-5 pt-5' style={{ "minHeight": "80vh" }}>
+                <div className='col-md-10 mx-auto mt-5 pt-5' style={{ "minHeight": "80vh" }}>
                     <div className='row mt-5'>
                         <div className='col-md-6 col-lg-6'>
                             {

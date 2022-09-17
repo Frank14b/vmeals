@@ -9,35 +9,25 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Link from 'next/link';
 import { Button, FormControl, InputLabel, MenuItem, Select } from '@mui/material';
+import ApiCalls from '../utils/apicalls';
 
 export default function OurPartnersComponent() {
     const { t } = useTranslation('common');
+    const [slideData, setSlideData] = useState([])
     const [slideLoading, setSlideLoading] = useState(true)
 
-    const slideData = [
-        {
-            "image": "https://i0.wp.com/workspace.vmeals.ae/wp-content/uploads/2022/07/Choose-Plan.png?resize=150%2C150&ssl=1",
-            "title": "SELECT A PLAN",
-            "description": "I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo."
-        },
-        {
-            "image": "https://i0.wp.com/workspace.vmeals.ae/wp-content/uploads/2022/07/Enter-Information.png?resize=150%2C150&ssl=1",
-            "title": "SELECT A PLAN",
-            "description": "I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo."
-        },
-        {
-            "image": "https://i0.wp.com/workspace.vmeals.ae/wp-content/uploads/2022/07/Eating.png?resize=150%2C150&ssl=1",
-            "title": "SELECT A PLAN",
-            "description": "I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo."
-        }
-    ]
-
-    const sideElement = [
-        { description: "", image: "./images/homebanner.webp" },
-        { description: "", image: "./images/homebanner.webp" },
-        { description: "", image: "./images/homebanner.webp" }
-    ]
-
+    const getPartnersSlider = () => {
+        let result = ApiCalls.getPartnersSlider()
+        result.then(response => {
+            if (response.data.status == 200) {
+                setSlideData(response.data.data)
+                setSlideLoading(false)
+            }
+            setSlideLoading(false)
+        }).catch(e => {
+            setSlideLoading(false)
+        })
+    }
 
     const howContactYou = (e) => {
 
@@ -52,10 +42,8 @@ export default function OurPartnersComponent() {
     }
 
     useEffect(() => {
-        setSlideLoading(true)
-        setTimeout(() => {
-            setSlideLoading(false)
-        }, 1300);
+        // setSlideLoading(true)
+        getPartnersSlider()
     }, [])
 
 
@@ -73,7 +61,7 @@ export default function OurPartnersComponent() {
                         <div className='col-md-6 bg-light p-0 box-shadow border-radius mb-5'>
                             {
                                 (!slideLoading) ? (
-                                    <SliderComponent slideData={sideElement}></SliderComponent>
+                                    <SliderComponent slideData={slideData} page='parthners'></SliderComponent>
                                 ) : (
 
                                     <>

@@ -73,7 +73,7 @@ export default function ContactUsComponent() {
             <Header page={"contactus"} subpage=""></Header>
 
             <div className='w-100'>
-                <div className='container my-5 pt-5' style={{ "minHeight": "80vh" }}>
+                <div className='col-md-10 mx-auto my-5 pt-5' style={{ "minHeight": "80vh" }}>
                     <div className='row mt-5'>
 
                         <div className='col-md-12'>

@@ -6,6 +6,10 @@ export default function handler(req, res) {
         WpApiController.getHomepageSlidersData(req, res)
     }
 
+    if(req.query._method == "getPartnersSlider") {
+        WpApiController.getPartnersSlider(req, res)
+    }
+
     if(req.query._method == "getHomepageChooseUs") {
         WpApiController.getHomepageChooseUs(req, res)
     }

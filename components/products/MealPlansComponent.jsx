@@ -281,7 +281,7 @@ export default function MealPlansComponent() {
 
             {/* home page five section  */}
             <div className='w-100 homepage_fivesection pt-5' >
-                <div className='col-md-11 col-lg-10 mx-auto px-2'>
+                <div className='col-md-11 col-lg-10 mx-auto px-3'>
                     <GoogleReviewComponents></GoogleReviewComponents>
                 </div>
             </div >

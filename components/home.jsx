@@ -21,30 +21,6 @@ export default function HomeComponent() {
     const [chooseUs, setChooseUs] = useState([])
     const [mealPlansInDubai, setMealPlansInDubai] = useState([])
 
-    const chooseUsData = [
-        {
-            "image": "https://i0.wp.com/workspace.vmeals.ae/wp-content/uploads/2019/06/cuisine.png?ssl=1",
-            "title": "Variety of Cuisines",
-            "description": "I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo."
-        },
-        {
-            "image": "https://i0.wp.com/workspace.vmeals.ae/wp-content/uploads/2019/06/Delivery.png?ssl=1",
-            "title": "Daily Deliveries",
-            "description": "I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo."
-        },
-        {
-            "image": "https://i0.wp.com/workspace.vmeals.ae/wp-content/uploads/2019/06/Eco-Friendly.png?ssl=1",
-            "title": "Eco-Friendly Packaging",
-            "description": "I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo."
-        }
-        ,
-        {
-            "image": "https://i0.wp.com/workspace.vmeals.ae/wp-content/uploads/2019/06/Intolerances.png?ssl=1",
-            "title": "Allergies & Intolerances",
-            "description": "I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo."
-        }
-    ]
-
     useEffect(() => {
         getMealPlansInDubai()
         getHomeSlider()

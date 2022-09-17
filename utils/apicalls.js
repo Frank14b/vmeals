@@ -17,6 +17,14 @@ const getHomePageSlider = () => {
     return axios(params)
 }
 
+const getPartnersSlider = () => {
+    let params = {
+        url: AppLink.API_NEXT + "getPartnersSlider",
+        method: "GET",
+    }
+    return axios(params)
+}
+
 const getHomePageChooseUs = () => {
     let params = {
         url: AppLink.API_NEXT + "getHomepageChooseUs",
@@ -169,7 +177,8 @@ const ApiCalls = {
     "getRecentBlog": getRecentBlog,
     "checkCustomData": checkCustomData,
     "getProductData": getProductData,
-    "getMealPlansInDubai": getMealPlansInDubai
+    "getMealPlansInDubai": getMealPlansInDubai,
+    "getPartnersSlider": getPartnersSlider
 }
 
 export default ApiCalls

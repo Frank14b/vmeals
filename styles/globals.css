@@ -694,3 +694,10 @@ a {
 .fixedRightIcon_2 {
   top: 45%;
 }
+
+@media screen and (max-width: 992px) {
+   .mealplans_section_1 .px-5 {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+   }
+}

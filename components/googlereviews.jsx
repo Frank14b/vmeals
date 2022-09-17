@@ -70,6 +70,23 @@ export default function GoogleReviewComponents() {
                             <div className='row'>
                                 <Swiper
                                     slidesPerView={4}
+                                    breakpoints={{
+                                        // when window width is >= 640px
+                                        0: {
+                                          slidesPerView: 1,
+                                        },
+                                        // when window width is >= 768px
+                                        640: {
+                                          slidesPerView: 2,
+                                        },
+                                        // when window width is >= 768px
+                                        992: {
+                                            slidesPerView: 3,
+                                        },
+                                        1300: {
+                                            slidesPerView: 4,
+                                        },
+                                    }}
                                     spaceBetween={10}
                                     freeMode={true}
                                     pagination={{
