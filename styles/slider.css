@@ -51,8 +51,8 @@
 
 .homepage_firstsection .mySwiper .slide_description {
     position: absolute;
-    right: 4%;
-    top: 30%;
+    right: 8%;
+    top: 45%;
     transform: translate(0, -50%);
     width: 30%;
     border-radius: 35px !important;
@@ -63,7 +63,7 @@
         position: absolute;
         left: 4%;
         right: 4%;
-        top: 30%;
+        top: 50%;
         transform: translate(0, -50%);
         width: auto;
         background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)) !important;
